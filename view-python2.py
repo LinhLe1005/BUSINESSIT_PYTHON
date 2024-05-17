@@ -1,10 +1,5 @@
 # installing packages
 import streamlit as st
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-import plotly.graph_objects as go
-from matplotlib.patches import Patch
 
 # creating side bar
 with st.sidebar:
