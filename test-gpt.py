@@ -46,16 +46,39 @@ Data Scientist at Kaggle - Madrid, Community of Madrid, Spain
 )
 
 # Loading dataset
-@st.cache
-def load_data():
-    url = "https://raw.githubusercontent.com/fedesoriano/heart-failure-prediction/main/heart.csv"
-    return pd.read_csv(url)
+@st.cache_data
+def load_data(url):
+    try:
+        return pd.read_csv(url)
+    except Exception as e:
+        st.error(f"Error loading data: {e}")
+        return None
 
-df = load_data()
+url = "https://raw.githubusercontent.com/fedesoriano/heart-failure-prediction/main/heart.csv"
+df = load_data(url)
 
-# CHARTS
-st.header('Charts')
-st.subheader('AREA CHART: Chest Pain Type by Age Distribution')
+if df is not None:
+    # CHARTS
+    st.header('Charts')
+    st.subheader('AREA CHART: Chest Pain Type by Age Distribution')
 
-# Plotting Area Chart
-st.area_chart(df[['Age', 'ChestPainType']].groupby('ChestPainType').mean())
+    # Plotting Area Chart
+    st.area_chart(df[['Age', 'ChestPainType']].groupby('ChestPainType').mean())
+else:
+    st.error("Failed to load the dataset. Please upload the dataset manually.")
+
+# Option to upload the dataset manually
+uploaded_file = st.file_uploader("Upload your CSV file", type="csv")
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file)
+    st.success("File uploaded successfully!")
+
+    # Display the dataset
+    st.dataframe(df)
+
+    # CHARTS
+    st.header('Charts')
+    st.subheader('AREA CHART: Chest Pain Type by Age Distribution')
+
+    # Plotting Area Chart
+    st.area_chart(df[['Age', 'ChestPainType']].groupby('ChestPainType').mean())
