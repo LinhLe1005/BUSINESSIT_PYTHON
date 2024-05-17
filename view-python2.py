@@ -50,6 +50,5 @@ Data Scientist at Kaggle - Madrid, Community of Madrid, Spain
 
 
 # CHARTS
-st.header('Charts)
+st.header('Charts')
 st.subheader('AREA CHART: Chest Pain Type by Age Distribution')
-st.subheader(''
