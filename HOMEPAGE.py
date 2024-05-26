@@ -1,9 +1,5 @@
 import streamlit as st
 import pandas as pd
-from streamlit_extras.colored_header import colored_header
-from annotated_text import annotated_text
-from streamlit_extras.stoggle import stoggle
-from streamlit_extras.let_it_rain import rain
 import matplotlib.pyplot as plt
 
 st.set_page_config(page_icon="chart_with_upwards_trend", page_title="BUSINESS IT 2 - PYTHON PROJECT 2", layout="wide")
