@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from streamlit_lottie import st_lottie
+
 from streamlit_extras.colored_header import colored_header
 from annotated_text import annotated_text
 from streamlit_extras.stoggle import stoggle
