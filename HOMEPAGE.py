@@ -4,7 +4,6 @@ import numpy as np
 import json
 import streamlit_lottie as st_lottie
 import requests
-import matplotlib.pyplot as plt
 import plotly.express as px
 import matplotlib.pyplot as plt
 from streamlit_extras.colored_header import colored_header
