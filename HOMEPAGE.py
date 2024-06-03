@@ -1,4 +1,4 @@
-pip install https://github.com/andfanilo/streamlit-lottie
+pip install streamlit-lottie
 
 import streamlit as st 
 import pandas as pd 
