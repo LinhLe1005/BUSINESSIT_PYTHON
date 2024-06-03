@@ -1,4 +1,5 @@
-pip install streamlit_lottie 
+pip install git+https://github.com/andfanilo/streamlit-lottie.git
+
 import streamlit as st 
 import pandas as pd 
 import numpy as np
