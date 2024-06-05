@@ -19,13 +19,11 @@ st.divider()
 with st.container():
   st.header("Information about Cardiovascular Disease 🫀")
   st.write("[Viewing our dataset >](https://docs.google.com/spreadsheets/d/1OFNByvybC163CwUWIFsOyqrDnyug_t4X/edit?usp=sharing&ouid=113809598862321872480&rtpof=true&sd=true)")
-  st.write("##")
-  st.write("**REASONS CHOSE THE DATASETS**")
+  st.write("**✴️ REASONS CHOSE THE DATASETS**")
   st.write("""
   The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases. Also, it has many variables, such as categorical variables and real variables. And we believe that with its diversity of information, we can analyze these data into intuitive charts.
   """)
-  st.write("##")
-  st.write("**VARIABLES OF THE DATASETS**")
+  st.write("**🔖 VARIABLES OF THE DATASETS**")
   st.write(
         """ Our data frame contains these main variables as follows:
         \n - *Age*: Age of the patient [years]
