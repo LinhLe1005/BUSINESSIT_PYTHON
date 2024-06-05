@@ -25,7 +25,7 @@ with st.container():
   The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases. Also, it has many variables, such as categorical variables and real variables. And we believe that with its diversity of information, we can analyze these data into intuitive charts.
   """)
   st.write("##")
-  st.write("**AUTHORS OFs reasons,  we want to find out the data have an Intuitive view through different types of charts.  In the process of finding a data set for the R Studio project, we were impressed by the information “taking an estimated 17.9 million lives each year,  which accounts for 31% of all deaths worldwide”, which was a huge statistic.  This data set not only is in the field we enjoy but also has a standard structure we need for the project.
+  st.write("Since all members of our group are interested in what causes the most deaths globally, and this dataset appears with various numbers with its reasons,  we want to find out the data have an Intuitive view through different types of charts.  In the process of finding a data set for the R Studio project, we were impressed by the information “taking an estimated 17.9 million lives each year,  which accounts for 31% of all deaths worldwide”, which was a huge statistic.  This data set not only is in the field we enjoy but also has a standard structure we need for the project.
 """)
   st.write(""" ℹ️ Group information: Le Phuong Linh - 10323049; Nguyen Minh Tri - 10623045; Nguyen Nhu Ngoc - 10323019; Pham Dinh Khanh Ngoc - 10623033
 """)
@@ -44,7 +44,7 @@ with st.container():
   st.write("##")
   st.write("**AUTHORS OF THE DATASETS**")
   st.write("""
-  **MAIN: FEDESORIANO - SEPTEMBER 2021**
+  MAIN: FEDESORIANO - SEPTEMBER 
 Data Scientist at Kaggle - Madrid, Community of Madrid, Spain
    Acknowledgments:
 Creators:
