@@ -14,6 +14,7 @@ from streamlit_extras.stoggle import stoggle
 from streamlit_extras.let_it_rain import rain
 import plotly.express as px
 
+
 # SETTING PAGE
 st.set_page_config(page_icon="chart_with_upwards_trend", page_title="BUSINESS IT 2 - PYTHON PROJECT 2", layout="wide")
 with st.container():
@@ -62,7 +63,7 @@ with st.container():
 
 ### TAB 1: RESTING BLOOD PRESSURE
 # importing datasets
-HEART_DATASETS = pd.read_excel(HEART_DATASETS)
+HEART_DATASETS = pd.read_excel('HEART_DATASETS.xlsx')
 
 # defining colors
 colors1 = ["#EDCC6F", "#F57893"]
