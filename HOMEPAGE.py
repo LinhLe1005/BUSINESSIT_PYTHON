@@ -3,6 +3,15 @@ import pandas as pd
 import streamlit as st
 import altair as alt
 
+# SETTING SIDEBAR
+st.sidebar.write('**:bulb: Instructor: Dr. Tan Duc Do**')
+st.sidebar.write('**:bulb: Group Members:**')
+with st.sidebar:
+    st.write('Le Phuong Linh - 10323049')
+    st.write('Nguyen Minh Tri - 10623045')
+    st.write('Nguyen Nhu Ngoc - 10323019')
+    st.write('Pham Dinh Khanh Ngoc - 10623033')
+
 # SETTING PAGE
 st.set_page_config(page_icon="chart_with_upwards_trend", page_title="BUSINESS IT 2 - PYTHON PROJECT 2", layout="wide")
 with st.container():
