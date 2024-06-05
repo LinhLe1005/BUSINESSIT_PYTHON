@@ -15,8 +15,8 @@ st.divider()
 
 
 # SETTING SIDEBAR
-st.sidebar.write('** 🧑🏻‍🏫 Instructor: Dr. Tan Duc Do**')
-st.sidebar.write('** ℹ️ Group Members:**')
+st.sidebar.write('**🧑🏻‍🏫 Instructor: Dr. Tan Duc Do**')
+st.sidebar.write('**ℹ️ Group Members:**')
 with st.sidebar:
     st.write('Le Phuong Linh - 10323049')
     st.write('Nguyen Minh Tri - 10623045')
