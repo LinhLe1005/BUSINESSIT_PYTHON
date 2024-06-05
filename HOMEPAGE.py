@@ -62,7 +62,13 @@ with st.container():
         \n - *ST_Slope*: the slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
         \n - *HeartDisease*: output class [1: heart disease, 0: Normal]""")
 
+st.divider()
+
+
 # SETTING CHARTS
+st.header("Factors Affecting Individual's Health Problems")
+st.write("Let's discover these graphs below")
+# Initial 3 tabs for each type of variables
 tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
 
 ### TAB 1: RESTING BLOOD PRESSURE
