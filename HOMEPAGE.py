@@ -1,7 +1,8 @@
 # LOADING PACKAGES
 import pandas as pd
 import streamlit as st
-import altair as alt
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # SETTING PAGE
 st.set_page_config(page_icon="chart_with_upwards_trend", page_title="BUSINESS IT 2 - PYTHON PROJECT 2", layout="wide")
@@ -51,3 +52,35 @@ with st.container():
         \n - *HeartDisease*: output class [1: heart disease, 0: Normal] """)
 
 st.divider()
+
+
+# SETTING CHARTS
+st.header("Factors affecting individual's health problems")
+st.write("Let's discover these graphs below")
+# Creating 3 tabs for each type of variable
+tab1, tab2 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
+
+### TAB 1: RESTING BLOOD PRESSURE
+# importing datasets
+HEART_DATASETS = pd.read_excel(HEART_DATASETS)
+
+# defining colors
+colors1 = ["#EDCC6F", "#F57893"]
+
+
+# creating facet grid
+scatterplot = sns.FacetGrid(HEART_DATASETS, col='HeartDisease', hue='HeartDisease', palette=colors1, height=6, aspect=1.5)
+scatterplot.map(sns.regplot, 'Age', 'RestingBP', scatter_kws={'s': 50}, fit_reg=True, marker='o')
+
+# adding label names and title
+scatterplot.fig.subplots_adjust(top=0.9)
+scatterplot.fig.suptitle('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=15, y=1)
+scatterplot.set_axis_labels("Age (years)", "Resting Blood Pressure (mm Hg)")
+
+# setting the size of the plot
+scatterplot.fig.set_size_inches(10, 6)
+plt.tight_layout()
+
+# showing plot
+plt.show()
+
