@@ -63,7 +63,7 @@ with st.container():
         \n - *HeartDisease*: output class [1: heart disease, 0: Normal]""")
 
 # SETTING CHARTS
-tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"]
+tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
 
 ### TAB 1: RESTING BLOOD PRESSURE
 # importing datasets
