@@ -49,7 +49,7 @@ with st.container():
   """)
   st.write("**🔖 VARIABLES OF THE DATASETS**")
   st.write(
-        """ Our data frame contains these main variables as follows:
+        """Our data frame contains these main variables as follows:
         \n - *Age*: Age of the patient [years]
         \n - *Sex*: Sex of the patient [M: Male, F: Female]
         \n - *ChestPainType*: hest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]
@@ -58,7 +58,7 @@ with st.container():
         \n - *FastingBS*: fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]
         \n - *MaxHR*: maximum heart rate achieved [Numeric value between 60 and 202]
         \n - *ExerciseAngina*: exercise-induced angina [Y: Yes, N: No] 
-        \n - *ST_Stab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
+        \n - *ST_Stab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"]""")
 
 ### TAB 1: RESTING BLOOD PRESSURE
 # importing datasets
@@ -83,4 +83,3 @@ plt.tight_layout()
 
 # showing plot
 plt.show()
-
