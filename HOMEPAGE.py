@@ -1,10 +1,6 @@
 import streamlit as st 
 import pandas as pd 
-import streamlit_lottie as st_lottie
-from streamlit_extras.colored_header import colored_header
-from annotated_text import annotated_text
-from streamlit_extras.stoggle import stoggle
-from streamlit_extras.let_it_rain import rain
+
 
 st.set_page_config(page_icon="chart_with_upwards_trend", page_title="BUSINESS IT 2 - PYTHON PROJECT 2", layout="wide")
 st.subheader("Group 10")
@@ -22,11 +18,4 @@ stoggle(
     3. Nguyen Nhu Ngoc - 10323019
     4. Pham Dinh Khanh Ngoc - 10623033
     """
-)
-
-rain(
-    emoji="❤️",
-    font_size=54,
-    falling_speed=3,
-    animation_length="5",
 )
