@@ -1,6 +1,10 @@
 # LOADING PACKAGES
-import streamlit as st 
-import pandas as pd 
+import pandas as pd
+import streamlit as st
+import altair as alt
+import plotly.express as px
+import urllib.parse
+import plotly.graph_objects as go
 
 # SETTING PAGE
 st.set_page_config(page_icon="chart_with_upwards_trend", page_title="BUSINESS IT 2 - PYTHON PROJECT 2", layout="wide")
