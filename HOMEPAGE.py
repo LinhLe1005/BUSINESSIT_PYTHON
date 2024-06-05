@@ -1,7 +1,19 @@
 # LOADING PACKAGES
 import pandas as pd
 import streamlit as st
-import seaborn as sns
+import numpy as np
+import json
+import streamlit_lottie as st_lottie
+import requests
+from streamlit_extras.colored_header import colored_header
+from annotated_text import annotated_text
+import streamlit as st
+from PIL import Image
+from streamlit_extras.stoggle import stoggle
+from streamlit_extras.let_it_rain import rain
+import matplotlib.pyplot as plt
+import plotly.express as px
+import matplotlib.pyplot as plt
 import matplotlib.pyplot as plt
 
 # SETTING PAGE
