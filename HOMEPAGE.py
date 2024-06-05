@@ -32,6 +32,11 @@ with st.container():
   st.write("""
   The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases. Also, it has many variables, such as categorical variables and real variables. And we believe that with its diversity of information, we can analyze these data into intuitive charts.
   """)
+  st.write("**👨🏻‍💻 AUTHOR OF THE DATASETS**")
+  st.write("""
+  *FEDESORIANO - SEPTEMBER 2021*
+  Data Scientist at Kaggle - Madrid, Community of Madrid, Spain
+  """)
   st.write("**🔖 VARIABLES OF THE DATASETS**")
   st.write(
         """ Our data frame contains these main variables as follows:
