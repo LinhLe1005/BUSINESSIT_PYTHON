@@ -4,3 +4,4 @@ numpy
 streamlit_extras
 streamlit_lottie
 plotly.express
+seaborn
