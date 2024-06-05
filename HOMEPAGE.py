@@ -59,7 +59,11 @@ with st.container():
         \n - *FastingBS*: fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]
         \n - *MaxHR*: maximum heart rate achieved [Numeric value between 60 and 202]
         \n - *ExerciseAngina*: exercise-induced angina [Y: Yes, N: No] 
-        \n - *ST_Stab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"]""")
+        \n - *ST_Slope*: the slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
+        \n - *HeartDisease*: output class [1: heart disease, 0: Normal]""")
+
+# SETTING CHARTS
+tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"]
 
 ### TAB 1: RESTING BLOOD PRESSURE
 # importing datasets
