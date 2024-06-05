@@ -22,7 +22,7 @@ with st.container():
   st.header("Information about Cardiovascular Disease 🫀")
   st.write("[Viewing our dataset >](https://docs.google.com/spreadsheets/d/1OFNByvybC163CwUWIFsOyqrDnyug_t4X/edit?usp=sharing&ouid=113809598862321872480&rtpof=true&sd=true)")
   st.write("##")
-    st.write(
+  st.write(
         """ Our refined data frame contains 4 main variables as follows:
         \n - *Category*: A factor with levels of Medicine, Physics, Peace, Literature, Chemistry, and Economics (Categories of the Nobel Prize)
         \n - *Number of Prizes*: A vector that counts the number of Prizes received
