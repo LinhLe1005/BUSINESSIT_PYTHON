@@ -34,8 +34,7 @@ with st.container():
   """)
   st.write("**👨🏻‍💻 AUTHOR OF THE DATASETS**")
   st.write("""
-  *FEDESORIANO - SEPTEMBER 2021*
-  Data Scientist at Kaggle - Madrid, Community of Madrid, Spain
+  FEDESORIANO - Data Scientist at Kaggle - Madrid, Community of Madrid, Spain
   """)
   st.write("**🔖 VARIABLES OF THE DATASETS**")
   st.write(
