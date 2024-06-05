@@ -6,13 +6,13 @@ import numpy as np
 import json
 import matplotlib.pyplot as plt
 import streamlit_lottie as st_lottie
+import plotly.express as px
 import requests
 from streamlit_extras.colored_header import colored_header
 from annotated_text import annotated_text
 from PIL import Image
 from streamlit_extras.stoggle import stoggle
 from streamlit_extras.let_it_rain import rain
-import plotly.express as px
 
 
 # SETTING PAGE
