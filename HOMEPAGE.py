@@ -11,6 +11,7 @@ from annotated_text import annotated_text
 from streamlit_extras.stoggle import stoggle
 from streamlit_extras.let_it_rain import rain
 
+HEART_DATASETS = pd.read_excel('HEART_DATASETS.xlsx')
 
 # SETTING PAGE
 st.set_page_config(page_icon="chart_with_upwards_trend", page_title="BUSINESS IT 2 - PYTHON PROJECT 2", layout="wide")
@@ -36,7 +37,8 @@ with st.sidebar:
 # SETTING DATASETS
 with st.container():
   st.header("Information about Cardiovascular Disease 🫀")
-  st.write("[Viewing our dataset >](https://docs.google.com/spreadsheets/d/1OFNByvybC163CwUWIFsOyqrDnyug_t4X/edit?usp=sharing&ouid=113809598862321872480&rtpof=true&sd=true)")
+  st.write("[Viewing our dataset >]
+           st.dataframe(HEART_DATASETS)
   st.write("**✴️ REASONS CHOSE THE DATASETS**")
   st.write("""
   The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases. Also, it has many variables, such as categorical variables and real variables. And we believe that with its diversity of information, we can analyze these data into intuitive charts.
@@ -69,8 +71,7 @@ st.write("Let's discover these graphs below")
 tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
 
 ### TAB 1: RESTING BLOOD PRESSURE
-# importing datasets
-HEART_DATASETS = pd.read_excel('HEART_DATASETS.xlsx')
+
 
 # defining colors
 colors1 = ["#EDCC6F", "#F57893"]
