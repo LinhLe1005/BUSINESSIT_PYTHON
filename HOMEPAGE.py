@@ -37,7 +37,7 @@ with st.sidebar:
 # SETTING DATASETS
 with st.container():
   st.header("Information about Cardiovascular Disease 🫀")
-  st.write("[Viewing our dataset >]
+  st.write("[Viewing our dataset]")
            st.dataframe(HEART_DATASETS)
   st.write("**✴️ REASONS CHOSE THE DATASETS**")
   st.write("""
