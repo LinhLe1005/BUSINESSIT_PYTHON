@@ -38,7 +38,7 @@ with st.sidebar:
 with st.container():
   st.header("Information about Cardiovascular Disease 🫀")
   st.write("[Viewing our dataset]")
-  st.dataframe(HEART_DATASETS)
+  st.write(HEART_DATASETS)
   st.write("**✴️ REASONS CHOSE THE DATASETS**")
   st.write("""
   The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases. Also, it has many variables, such as categorical variables and real variables. And we believe that with its diversity of information, we can analyze these data into intuitive charts.
