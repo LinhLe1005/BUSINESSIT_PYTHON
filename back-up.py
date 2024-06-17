@@ -11,7 +11,7 @@ from annotated_text import annotated_text
 from streamlit_extras.stoggle import stoggle
 from streamlit_extras.let_it_rain import rain
 
-
+HEART_DATASETS = pd.read_csv('HEART_DATASETS.csv')
 
 # defining colors
 colors1 = ["#EDCC6F", "#F57893"]
