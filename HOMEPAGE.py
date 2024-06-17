@@ -92,7 +92,3 @@ plt.tight_layout()
 
 # showing plot
 plt.show()
-
-
-
-
