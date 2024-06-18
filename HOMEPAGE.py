@@ -91,4 +91,4 @@ scatterplot.fig.set_size_inches(10, 6)
 plt.tight_layout()
 
 # showing plot
-plt.show()
+plt.show(tab1)
