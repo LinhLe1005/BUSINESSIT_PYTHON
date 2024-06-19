@@ -10,6 +10,7 @@ from streamlit_extras.colored_header import colored_header
 from annotated_text import annotated_text
 from streamlit_extras.stoggle import stoggle
 from streamlit_extras.let_it_rain import rain
+import plotly.express as px
 
 HEART_DATASETS = pd.read_csv('HEART_DATASETS.csv')
 
@@ -83,7 +84,8 @@ with tab1:
   scatterplot.fig.subplots_adjust(top=0.9)
   scatterplot.fig.suptitle('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=15, y=1)
   scatterplot.set_axis_labels("Age (years)", "Resting Blood Pressure (mm Hg)")
-
+  scatterplot.update_traces(opecity=0.6)
+  
   # setting the size of the plot
   scatterplot.fig.set_size_inches(10, 6)
   plt.tight_layout()
