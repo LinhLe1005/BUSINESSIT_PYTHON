@@ -76,19 +76,10 @@ tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram
 with tab1:
   st.header("This is tab 2 test")
   colors1 = ["#EDCC6F", "#F57893"]
-  fig, ax= plt.subplots()
-  
-  scatterplot = sns.FacetGrid(HEART_DATASETS, col='HeartDisease', hue='HeartDisease', palette=colors1, height=6, aspect=1.5,)
-  scatterplot.map(sns.regplot, 'Age', 'RestingBP', scatter_kws={'s': 50,'alpha':0.5}, fit_reg=True, marker='o')
-
-  scatterplot.fig.subplots_adjust(top=0.9)
-  scatterplot.fig.suptitle('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=15, y=1)
-  scatterplot.set_axis_labels("Age (years)", "Resting Blood Pressure (mm Hg)")
-  scatterplot.set_facecolor('none')
-  
-  # setting the size of the plot
-  scatterplot.fig.set_size_inches(10, 6)
-  plt.tight_layout()
+  fig, ax = plt.subplots(figsize=(10, 6)) 
+  scatter_plot = px.scatter(filtered_df_counts, x='Age', y='RestingBP', color=['#EDCC6F', '#F57893'], title='Subject-wise Scores' ) 
+  scatter_plot.update_traces(marker=dict(size=20, opacity=0.6)) 
+  scatter_plot.update_layout( width=900, height=500, title_font_size=24, title_x=0.5, xaxis=dict( title='Count', title_font=dict(size=26), tickfont=dict(size=16) ), yaxis=dict( title='Scores', title_font=dict(size=26), tickfont=dict(size=16) ), legend_title=dict(font=dict(size=16)), legend=dict( title_font_size=20, font=dict(size=16) ) )
 
   # showing plot
   st.pyplot(scatterplot.fig)
