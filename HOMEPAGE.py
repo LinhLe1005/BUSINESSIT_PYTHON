@@ -78,7 +78,7 @@ def load_data():
 
 # Main function to run the app
 def main():
-    st.title("Scatterplot with Streamlit")
+    st.title("Age and Resting Blood Pressure Distribution")
 
     # Load data
     data = load_data()
@@ -93,9 +93,6 @@ def main():
     # Adding label names and title
     scatterplot.fig.suptitle('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=15)
     scatterplot.set_axis_labels("Age (years)", "Resting Blood Pressure (mm Hg)")
-
-    # Adjust the layout to make room for the title
-    scatterplot.fig.subplots_adjust(top=0.85)
 
     # Display the plot in Streamlit
     st.pyplot(scatterplot)
