@@ -31,7 +31,7 @@ with st.sidebar:
     st.write('Le Phuong Linh - 10323049')
     st.write('Nguyen Minh Tri - 10623045')
     st.write('Nguyen Nhu Ngoc - 10323019')
-    st.write('PhaDATASETS, x='Age', y='RestingBP', hue='HeartDisease', palette=colors, s=50, marker='o')
+    st.write('PhaDATASETS, x='Age', y='RestingBP', hue='HeartDisease', palette=colors, s=50)
     plt.title('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=15)
     plt.xlabel("Age (years)")
     plt.ylabel("Resting Blood Pressure (mm Hg)")
