@@ -98,15 +98,15 @@ with tab2:
   colors1 = ["#EDCC6F", "#F57893"]
   fig, ax= plt.subplots()
   
-  ax = sns.FacetGrid(HEART_DATASETS, col='HeartDisease', hue='HeartDisease', palette=colors1, height=6, aspect=1.5)
-  ax.map(sns.regplot, 'Age', 'RestingBP', scatter_kws={'s': 50}, fit_reg=True, marker='o')
+  subplots = sns.FacetGrid(HEART_DATASETS, col='HeartDisease', hue='HeartDisease', palette=colors1, height=6, aspect=1.5)
+  subplots.map(sns.regplot, 'Age', 'RestingBP', scatter_kws={'s': 50}, fit_reg=True, marker='o')
 
-  ax.fig.subplots_adjust(top=0.9)
-  ax.fig.suptitle('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=15, y=1)
-  ax.set_axis_labels("Age (years)", "Resting Blood Pressure (mm Hg)")
+  subplots.fig.subplots_adjust(top=0.9)
+  subplots.fig.suptitle('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=15, y=1)
+  subplots.set_axis_labels("Age (years)", "Resting Blood Pressure (mm Hg)")
 
   # setting the size of the plot
-  ax.fig.set_size_inches(10, 6)
+  subplots.fig.set_size_inches(10, 6)
   plt.tight_layout()
 
   # showing plot
