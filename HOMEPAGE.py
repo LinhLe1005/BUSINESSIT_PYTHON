@@ -114,17 +114,17 @@ with tab2:
 
   # inner ring (Cholesterol by Sex and RestingECG)
   donut.add_trace(go.Pie(labels=sexecgcho_prop['Sex_RestingECG'],
-                       values=sexecgcho_prop['Cholesterol'], hole=0.8,
-                       text=[row['RestingECG'] for index,
-                             row in sexecgcho_prop.iterrows()],
-                       sort=False, rotation=-26,
-                       marker_colors=colors2))
+                         values=sexecgcho_prop['Cholesterol'], hole=0.8,
+                         text=[row['RestingECG'] for index,
+                               row in sexecgcho_prop.iterrows()],
+                         sort=False, rotation=-26,
+                         marker_colors=colors2))
 
   # adding title and adjusting layout
   donut.update_layout(title_x=0.5, title_y=0.9,
-                    title={'text': 'Cholesterol Distribution by Resting ECG among Genders',
-                          'font': {'size': 24, 'color': 'black'}},
-                    showlegend=False)
+                      title={'text': 'Cholesterol Distribution by Resting ECG among Genders',
+                            'font': {'size': 24, 'color': 'black'}},
+                      showlegend=False)
 
   # showing plot
-  st.pyplot(donut.fig)
+  st.pyplot(Pie.fig)
