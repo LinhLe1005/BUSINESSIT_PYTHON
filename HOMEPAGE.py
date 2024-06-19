@@ -110,5 +110,4 @@ with tab2:
   plt.tight_layout()
 
   # showing plot
-  plt.show()
-  st.pyplot(fig)
+  st.pyplot(scatterplot.fig)
