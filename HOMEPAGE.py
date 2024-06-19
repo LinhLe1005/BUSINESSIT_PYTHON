@@ -127,5 +127,5 @@ with tab2:
                       showlegend=False)
 
   # showing plot
-  g = donut.show()
-  st.pyplot(g.fig)
+  donut.show()
+  #st.pyplot(g.fig)
