@@ -127,4 +127,5 @@ with tab2:
                       showlegend=False)
 
   # showing plot
-  st.pyplot(Pie.fig)
+  g = donut.show()
+  st.pyplot(g.fig)
