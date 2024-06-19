@@ -71,11 +71,6 @@ st.write("Let's discover these graphs below")
 tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
 
 ### TAB 1: RESTING BLOOD PRESSURE
-@st.cache
-def load_data():
-    # Replace 'HEART_DATASETS.csv' with the actual path to your CSV file
-    data = pd.read_csv('HEART_DATASETS.csv')
-    return data
 
 # Main function to run the app
 def main():
