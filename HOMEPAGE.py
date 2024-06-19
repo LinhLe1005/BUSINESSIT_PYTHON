@@ -74,5 +74,5 @@ tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram
 
 
 # defining colors
-st.scatter_chart(HEART_DATASETS, x='Age', y='RestingBP', color=["#EDCC6F", "#F57893"]
+st.scatter_chart(HEART_DATASETS, x='Age', y='RestingBP', color=["#EDCC6F", "#F57893"])
 tab1.st.scatter_chart(scatterplot)
