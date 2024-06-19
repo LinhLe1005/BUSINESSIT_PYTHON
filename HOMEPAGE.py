@@ -1,24 +1,24 @@
+# LOADING PACKAGES
 import streamlit as st
 import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import streamlit_lottie as st_lottie
 from streamlit_extras.colored_header import colored_header
 from annotated_text import annotated_text
 from streamlit_extras.stoggle import stoggle
 from streamlit_extras.let_it_rain import rain
-import matplotlib.pyplot as plt
 
-
-# LOADING PACKAGES
-import pandas as pd
-import streamlit as st
-
+HEART_DATASETS = pd.read_csv('HEART_DATASETS.csv')
 
 # SETTING PAGE
 st.set_page_config(page_icon="chart_with_upwards_trend", page_title="BUSINESS IT 2 - PYTHON PROJECT 2", layout="wide")
 with st.container():
   st.subheader("Group 10")
   st.title("PYTHON 2 - BUSINESS IT 2 Thursday Morning 🧐")
-  st.write("""💁🏻 Since all members of our group are interested in what causes the most deaths globally, and this dataset appears with various numbers with its reasons,  we want to find out the data have an Intuitive view through different types of charts.  In the process of finding a data set for the R Studio project, we were impressed by the information “taking an estimated 17.9 million lives each year,  which accounts for 31% of all deaths worldwide”, which was a huge statistic.  This data set not only is in the field we enjoy but also has a standard structure we need for the project.
+  st.write("""💁🏻 Since all members of our group are interested in what causes the most deaths globally, and this dataset appears with various numbers with its reasons,  we want to find out the data have an Intuitive view through different types of charts. In the process of finding a data set for the R Studio project, we were impressed by the information *“taking an estimated 17.9 million lives each year,  which accounts for 31% of all deaths worldwide”*, which was a huge statistic.  This data set is not only in the field we enjoy but also has a standard structure we need for the project.
 """)
 
 st.divider()
@@ -37,7 +37,8 @@ with st.sidebar:
 # SETTING DATASETS
 with st.container():
   st.header("Information about Cardiovascular Disease 🫀")
-  st.write("[Viewing our dataset >](https://docs.google.com/spreadsheets/d/1OFNByvybC163CwUWIFsOyqrDnyug_t4X/edit?usp=sharing&ouid=113809598862321872480&rtpof=true&sd=true)")
+  st.write("[Viewing our dataset]")
+  st.write(HEART_DATASETS)
   st.write("**✴️ REASONS CHOSE THE DATASETS**")
   st.write("""
   The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases. Also, it has many variables, such as categorical variables and real variables. And we believe that with its diversity of information, we can analyze these data into intuitive charts.
@@ -69,3 +70,25 @@ st.write("Let's discover these graphs below")
 # Initial 3 tabs for each type of variables
 tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
 
+### TAB 1: RESTING BLOOD PRESSURE
+
+
+# defining colors
+colors1 = ["#EDCC6F", "#F57893"]
+
+
+# creating facet grid
+scatterplot = sns.FacetGrid(HEART_DATASETS, col='HeartDisease', hue='HeartDisease', palette=colors1, height=6, aspect=1.5)
+scatterplot.map(sns.regplot, 'Age', 'RestingBP', scatter_kws={'s': 50}, fit_reg=True, marker='o')
+
+# adding label names and title
+scatterplot.fig.subplots_adjust(top=0.9)
+scatterplot.fig.suptitle('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=15, y=1)
+scatterplot.set_axis_labels("Age (years)", "Resting Blood Pressure (mm Hg)")
+
+# setting the size of the plot
+scatterplot.fig.set_size_inches(10, 6)
+plt.tight_layout()
+
+# showing plot
+plt.show(tab1)
