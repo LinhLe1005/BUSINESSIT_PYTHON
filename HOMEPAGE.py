@@ -79,7 +79,7 @@ colors1 = ["#EDCC6F", "#F57893"]
 
 # creating facet grid
 scatterplot = sns.FacetGrid(HEART_DATASETS, col='HeartDisease', hue='HeartDisease', palette=colors1, height=6, aspect=1.5)
-scatterplot.map(st.scatter_chart, 'Age', 'RestingBP', scatter_kws={'s': 50}, fit_reg=True, marker='o')
+scatterplot.map(st.scatter_chart, 'Age', 'RestingBP')
 
 # adding label names and title
 scatterplot.fig.subplots_adjust(top=0.9)
