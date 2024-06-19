@@ -91,7 +91,7 @@ scatterplot.fig.set_size_inches(10, 6)
 plt.tight_layout()
 
 # showing plot
-plt.show(tab1)
+plt.show()
 
 with tab2:
   st.header("This is tab 2 test")
