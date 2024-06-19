@@ -96,7 +96,7 @@ with tab1:
 with tab2:
   st.header("This is tab 2 test")
   colors1 = ["#EDCC6F", "#F57893"]
-  fig, ax= plt.subplots()
+  fig, ax= plt.scatterplot()
   
   scatterplot = sns.FacetGrid(HEART_DATASETS, col='HeartDisease', hue='HeartDisease', palette=colors1, height=6, aspect=1.5)
   scatterplot.map(sns.regplot, 'Age', 'RestingBP', scatter_kws={'s': 50}, fit_reg=True, marker='o')
