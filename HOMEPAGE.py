@@ -93,11 +93,14 @@ with tab1:
 
 ### TAB 2:
 with tab2:
-  fig, ax= plt.subplots()
+  st.header("This is the graph")
+  
   # defining specific colors
   colors1 = ['#005A4E', '#2C1746', '#2C1746', '#2C1746']
   colors2 = ['#008170', '#009581', '#008A92', '#3F2164', '#482672', '#512B81']
 
+  fig, ax= plt.subplots()
+  
   # creating subplots
   sexecgcho_prop = HEART_DATASETS.groupby(['Sex', 'RestingECG'])['Cholesterol'].sum().reset_index()
   sexcho_counts = sexecgcho_prop.groupby('Sex')['Cholesterol'].sum().reset_index()
