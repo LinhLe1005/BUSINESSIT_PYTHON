@@ -77,7 +77,7 @@ with tab1:
   st.header("This is tab 2 test")
   colors1 = ["#EDCC6F", "#F57893"]
   fig, ax = plt.subplots(figsize=(10, 6)) 
-  scatter_plot = px.scatter(filtered_df_counts, x='Age', y='RestingBP', color=['#EDCC6F', '#F57893'], title='Subject-wise Scores' ) 
+  scatter_plot = px.scatter(HEART_DATASETS, x='Age', y='RestingBP', color=['#EDCC6F', '#F57893'], title='Subject-wise Scores' ) 
   scatter_plot.update_traces(marker=dict(size=20, opacity=0.6)) 
   scatter_plot.update_layout( width=900, height=500, title_font_size=24, title_x=0.5, xaxis=dict( title='Count', title_font=dict(size=26), tickfont=dict(size=16) ), yaxis=dict( title='Scores', title_font=dict(size=26), tickfont=dict(size=16) ), legend_title=dict(font=dict(size=16)), legend=dict( title_font_size=20, font=dict(size=16) ) )
 
