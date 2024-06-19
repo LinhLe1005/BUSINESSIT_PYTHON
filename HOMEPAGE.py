@@ -91,7 +91,7 @@ def main():
     scatterplot.map(sns.regplot, 'Age', 'RestingBP', scatter_kws={'s': 50}, fit_reg=True, marker='o')
 
     # Adding label names and title
-    scatterplot.fig.suptitle('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=15)
+    scatterplot.fig.suptitle('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=1515, y=1)
     scatterplot.set_axis_labels("Age (years)", "Resting Blood Pressure (mm Hg)")
 
     # Display the plot in Streamlit
