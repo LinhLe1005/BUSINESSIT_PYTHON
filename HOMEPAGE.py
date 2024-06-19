@@ -84,7 +84,6 @@ with tab1:
   scatterplot.fig.subplots_adjust(top=0.9)
   scatterplot.fig.suptitle('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=15, y=1)
   scatterplot.set_axis_labels("Age (years)", "Resting Blood Pressure (mm Hg)")
-  scatterplot.update_traces(marker=dict(opecity=0.6))
   
   # setting the size of the plot
   scatterplot.fig.set_size_inches(10, 6)
