@@ -93,6 +93,7 @@ with tab1:
 
 ### TAB 2:
 with tab2:
+  fig, ax= plt.subplots()
   # defining specific colors
   colors1 = ['#005A4E', '#2C1746', '#2C1746', '#2C1746']
   colors2 = ['#008170', '#009581', '#008A92', '#3F2164', '#482672', '#512B81']
@@ -127,5 +128,4 @@ with tab2:
                       showlegend=False)
 
   # showing plot
-  donut.show()
-  #st.pyplot(g.fig)
+  st.pyplot(donut.fig)
