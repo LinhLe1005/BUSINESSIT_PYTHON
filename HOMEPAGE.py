@@ -79,7 +79,7 @@ with tab1:
   fig, ax= plt.subplots()
   
   scatterplot = sns.FacetGrid(HEART_DATASETS, col='HeartDisease', hue='HeartDisease', palette=colors1, height=6, aspect=1.5)
-  scatterplot.map(sns.regplot, 'Age', 'RestingBP', scatter_kws={'s': 50,'alpha':0.6}, fit_reg=True, marker='o')
+  scatterplot.map(sns.regplot, 'Age', 'RestingBP', scatter_kws={'s': 50,'alpha':0.5}, fit_reg=True, marker='o')
 
   scatterplot.fig.subplots_adjust(top=0.9)
   scatterplot.fig.suptitle('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=15, y=1)
