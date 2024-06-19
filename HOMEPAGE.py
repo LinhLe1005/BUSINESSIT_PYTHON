@@ -133,32 +133,3 @@ with tab2:
   # showing plot
   st.pyplot_chart(donut)
 
-with tab3:
-  import plotly.express as px
-  import plotly.io as pio
-
-  # Load the example tips dataset
-  tips = px.data.tips()
-
-  # Create a scatter plot with facets
-  fig = px.scatter(
-      tips, x="total_bill", y="tip", 
-      color="smoker", 
-      facet_col="time", 
-      facet_row="sex",
-      title="Scatter plot of Total Bill vs Tip"
-  )
-
-  # Update the layout to set the background to be transparent
-  fig.update_layout(
-      paper_bgcolor='rgba(0,0,0,0)',  # Figure background
-      plot_bgcolor='rgba(0,0,0,0)'    # Plot background
-  )
-
-  # Update each facet background (Note: This will set the whole figure background)
-  for axis in fig.layout:
-      if isinstance(fig.layout[axis], dict):
-          fig.layout[axis]['bgcolor'] = 'rgba(0,0,0,0)'
-
-  # Show the plot
-  fig.show()
