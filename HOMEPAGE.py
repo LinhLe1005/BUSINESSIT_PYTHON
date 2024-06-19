@@ -74,17 +74,5 @@ tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram
 
 
 # defining colors
-colors1 = ["#EDCC6F", "#F57893"]
 st.scatter_chart(HEART_DATASETS, x='Age', y='RestingBP', color=["#EDCC6F", "#F57893"]
-
-# creating facet grid
-scatterplot = sns.FacetGrid(HEART_DATASETS, col='HeartDisease', hue='HeartDisease', palette=colors1, height=6, aspect=1.5)
-scatterplot.map(st.scatter_chart, 'Age', 'RestingBP')
-
-# adding label names and title
-scatterplot.fig.subplots_adjust(top=0.9)
-scatterplot.fig.suptitle('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=15, y=1)
-scatterplot.set_axis_labels("Age (years)", "Resting Blood Pressure (mm Hg)")
-
-# showing plot
 tab1.st.scatter_chart(scatterplot)
