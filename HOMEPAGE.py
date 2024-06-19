@@ -74,6 +74,10 @@ tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram
 ### TAB 1: RESTING BLOOD PRESSURE
 
 with tab1:
+# Define color map for HeartDisease status
+color_map = {0: "#EDCC6F", 1: "#F57893"}
+
+# Create a scatterplot with Plotly
 fig = px.scatter(HEART_DATASETS,
                  x='Age',
                  y='RestingBP',
