@@ -71,7 +71,7 @@ st.write("Let's discover these graphs below")
 tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
 
 ### TAB 1: RESTING BLOOD PRESSURE
-
+with tab1:
 
 # defining colors
 colors1 = ["#EDCC6F", "#F57893"]
