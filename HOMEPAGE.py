@@ -75,7 +75,7 @@ tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram
 
 # defining colors
 colors1 = ["#EDCC6F", "#F57893"]
-
+st.scatter_chart(HEART_DATASETS, x='Age', y='RestingBP', color=["#EDCC6F", "#F57893"]
 
 # creating facet grid
 scatterplot = sns.FacetGrid(HEART_DATASETS, col='HeartDisease', hue='HeartDisease', palette=colors1, height=6, aspect=1.5)
