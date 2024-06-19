@@ -71,6 +71,7 @@ st.write("Let's discover these graphs below")
 tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
 
 ### TAB 1: RESTING BLOOD PRESSURE
+@st.cache
 def load_data():
     # Replace 'HEART_DATASETS.csv' with the actual path to your CSV file
     data = pd.read_csv('HEART_DATASETS.csv')
@@ -78,24 +79,27 @@ def load_data():
 
 # Main function to run the app
 def main():
-    st.title("Age and Resting Blood Pressure Distribution")
+    st.title("Scatterplot with Streamlit")
 
     # Load data
     data = load_data()
 
+    # Display the data
+    st.write("Here is the dataset used for the scatterplot:")
+    st.write(data)
+
     # Define colors
     colors = ["#EDCC6F", "#F57893"]
 
-    # Create FacetGrid scatterplot
-    scatterplot = sns.FacetGrid(data, col='HeartDisease', hue='HeartDisease', palette=colors, height=6, aspect=1.5)
-    scatterplot.map(sns.regplot, 'Age', 'RestingBP', scatter_kws={'s': 50}, fit_reg=True, marker='o')
-
-    # Adding label names and title
-    scatterplot.fig.suptitle('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=1515, y=1)
-    scatterplot.set_axis_labels("Age (years)", "Resting Blood Pressure (mm Hg)")
+    # Create scatter plot
+    plt.figure(figsize=(10, 6))
+    scatter_plot = sns.scatterplot(data=data, x='Age', y='RestingBP', hue='HeartDisease', palette=colors, s=50, marker='o')
+    plt.title('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=15)
+    plt.xlabel("Age (years)")
+    plt.ylabel("Resting Blood Pressure (mm Hg)")
 
     # Display the plot in Streamlit
-    st.pyplot(scatterplot)
+    st.pyplot(plt)
 
 if __name__ == "__main__":
     main()
