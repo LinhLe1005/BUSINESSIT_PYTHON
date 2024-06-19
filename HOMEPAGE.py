@@ -92,3 +92,7 @@ plt.tight_layout()
 
 # showing plot
 plt.show(tab1)
+
+with tab2:
+  st.header("This is tab 2 test")
+  st.header("Hello world")
