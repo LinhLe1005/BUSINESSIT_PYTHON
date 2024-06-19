@@ -74,30 +74,17 @@ tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram
 ### TAB 1: RESTING BLOOD PRESSURE
 
 with tab1:
-# Define color map for HeartDisease status
-color_map = {0: "#EDCC6F", 1: "#F57893"}
+fig = px.scatter(
+    HEART_DATASETS,
+    x='Age',
+    y='RestingBP',
+    color='HeartDisease',
+    color_discrete_sequence=["#EDCC6F", "#F57893"],
+    title='Age and Resting Blood Pressure Distribution by Heart Disease Status',
+    labels={"Age": "Age (years)", "RestingBP": "Resting Blood Pressure (mm Hg)", "HeartDisease": "Heart Disease Status"},
+)
 
-# Create a scatterplot with Plotly
-fig = px.scatter(HEART_DATASETS,
-                 x='Age',
-                 y='RestingBP',
-                 color='HeartDisease',
-                 color_discrete_map=color_map,
-                 title='Age and Resting Blood Pressure Distribution by Heart Disease Status',
-                 labels={'Age': 'Age (years)', 'RestingBP': 'Resting Blood Pressure (mm Hg)'},
-                 template='plotly_white',
-                 height=600,
-                 width=900)
-
-# Update the layout for better readability
-fig.update_layout(title={'y':0.9, 'x':0.5, 'xanchor': 'center', 'yanchor': 'top'},
-                  legend_title_text='Heart Disease')
-
-# Streamlit app
-st.title("Heart Data Scatterplot")
-st.write("This scatterplot visualizes the relationship between Age and Resting Blood Pressure (RestingBP) with the presence of Heart Disease.")
-
-# Display the plot
+# Display plot using Streamlit
 st.plotly_chart(fig)
 
 ### TAB 2:
