@@ -92,12 +92,12 @@ with tab1:
     st.session_state.disabled = False
 
   # Divide columns
-    col1, col2 = st.columns([3, 4])
-    with col1:
-        overview = st.checkbox("Patients Gender", key="disabled")
-        age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
-    with col2:
-        rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
+  col1, col2 = st.columns([3, 4])
+  with col1:
+       overview = st.checkbox("Patients Gender", key="disabled")
+       age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
+  with col2:
+       rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
 
     # Create a container for displaying scatterplot
     with st.container():
