@@ -74,24 +74,45 @@ tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram
 ### TAB 1: RESTING BLOOD PRESSURE
 
 with tab1:
-  # Define colors
-  colors = ["#EDCC6F", "#F57893"]
-  
-  # Setting up the figure and axes with a matching background color
-  fig, ax = plt.subplots(figsize=(10, 6))
+  # Transform data
+HEART_DATASETS['HeartDisease'] = pd.to_numeric(HEART_DATASETS['HeartDisease'], errors='coerce')
+HEART_DATASETS['ExerciseAngina'] = pd.to_numeric(HEART_DATASETS['ExerciseAngina'], errors='coerce')
+HEART_DATASETS['FastingBS'] = pd.to_numeric(HEART_DATASETS['FastingBS'], errors='coerce')
 
-  # Setting a semi-transparent background for the axes
-  ax.set_facecolor((240/255, 240/255, 245/255, 0.85))  # Light grey with transparency
+# Define the function to get category data
+def get_category_data(gender, category):
+    if gender == "Male":
+        filtered_data = HEART_DATASETS[HEART_DATASETS['Gender'] == 'Male']
+    else:
+        filtered_data = HEART_DATASETS[HEART_DATASETS['Gender'] == 'Female']
+    
+    grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
+    
+    return grouped_data
 
-  # Creating the scatter plot
-  sns.scatterplot(data=HEART_DATASETS, x='Age', y='RestingBP', hue='HeartDisease', palette=colors, s=50, ax=ax)
+# Store the initial value of widgets in session state
+if "disabled" not in st.session_state:
+    st.session_state.disabled = False
 
-  # Adding labels and title
-  ax.set_xlabel("Age (years)")
-  ax.set_ylabel("Resting Blood Pressure (mm Hg)")
+# Define the layout
+tab1, tab2 = st.tabs(["Tab 1", "Tab 2"])
 
-  # Displaying the plot using Streamlit
-  st.pyplot(fig)
+with tab1:
+    col1, col2 = st.columns([3, 4])
+    with col1:
+        overview = st.checkbox("Patients Gender", key="disabled")
+        age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
+    with col2:
+        rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
+
+    # Create a container for displaying scatterplot
+    with st.container():
+        if overview:
+            category_data = get_category_data(age_type, rank)
+            st.subheader(f"{rank} Distribution for {age_type} Patients")
+            st.dataframe(category_data)
+            fig = px.bar(category_data, x=rank, y='Count', title=f"{rank} Distribution for {age_type} Patients")
+            st.plotly_chart(fig)
   
 
 
