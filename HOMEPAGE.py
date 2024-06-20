@@ -88,6 +88,7 @@ with tab1:
         grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
         return filtered_data, grouped_data
 
+    # Store the initial value of widgets in session state
     if "disabled" not in st.session_state:
         st.session_state.disabled = False
 
@@ -110,9 +111,9 @@ with tab1:
     # Use the function to generate the scatter plot based on user input
     if overview:
         if age_type == "Male":
-            data, _ = get_category_data("Male", rank)
+            data = male_data
         else:
-            data, _ = get_category_data("Female", rank)
+            data = female_data
         
         if rank == "HeartDisease":
             x_axis = "HeartDisease"
@@ -127,27 +128,5 @@ with tab1:
             y_axis = "RestingBP"
             color = "FastingBS"
         
-  # Define a function to generate the scatter plot
-  def generate_scatter_plot(data, x_axis, y_axis, color):
-    fig = px.scatter(data, x=x_axis, y=y_axis, color=color)
-    return fig
-
-  # Define a list of variables for each axis and color
-  x_axis_vars = ['HeartDisease', 'ExerciseAngina', 'FastingBS']
-  y_axis_vars = ['RestingBP', 'HeartDisease', 'ExerciseAngina']
-  color_vars = ['HeartDisease', 'ExerciseAngina', 'FastingBS']
-
-  # Use the function to generate the scatter plot based on user input
-  if overview:
-    if age_type == "Male":
-        data = male_data
-    else:
-        data = female_data
-    
-    # Get the selected variables for x_axis, y_axis, and color
-    x_axis = x_axis_vars[rank_index]
-    y_axis = y_axis_vars[rank_index]
-    color = color_vars[rank_index]
-    
-    fig = generate_scatter_plot(data, x_axis, y_axis, color)
-    scatter_container.plotly_chart(fig, use_container_width=True)
+        fig = generate_scatter_plot(data, x_axis, y_axis, color)
+        scatter_container.plotly_chart(fig, use_container_width=True)
