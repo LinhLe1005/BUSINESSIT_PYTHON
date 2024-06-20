@@ -99,9 +99,9 @@ with tab1:
   with col2:
        rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
 
-    # Create a container for displaying scatterplot
-    with st.container():
-        if overview:
+  # Create a container for displaying scatterplot
+  with st.container():
+       if overview:
             category_data = get_category_data(age_type, rank)
             st.subheader(f"{rank} Distribution for {age_type} Patients")
             st.dataframe(category_data)
