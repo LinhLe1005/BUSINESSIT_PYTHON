@@ -74,9 +74,22 @@ tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram
 ### TAB 1: RESTING BLOOD PRESSURE
 
 with tab1:
-  fig, ax = plt.subplots(figsize=(10, 6)) 
-  sns.scatterplot(data=HEART_DATASETS, x='Age', y='RestingBP', hue='HeartDisease')
-  st.pyplot(fig)
+  # Setting up the figure and axes with a matching background color
+fig, ax = plt.subplots(figsize=(10, 6))
+fig.patch.set_facecolor('#f0f0f5')  # Streamlit's default light grey background color
+ax.set_facecolor('#f0f0f5')
+
+# Creating the scatter plot
+sns.scatterplot(data=HEART_DATASETS, x='Age', y='RestingBP', hue='HeartDisease', ax=ax)
+
+# Adding labels and title
+ax.set_title('Age and Resting Blood Pressure Distribution by Heart Disease Status', fontsize=15)
+ax.set_xlabel("Age (years)")
+ax.set_ylabel("Resting Blood Pressure (mm Hg)")
+
+# Displaying the plot using Streamlit
+st.pyplot(fig)
+  
 
 
 ### TAB 2:
