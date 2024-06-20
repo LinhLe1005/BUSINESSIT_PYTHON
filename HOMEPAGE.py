@@ -72,7 +72,6 @@ st.write("Let's discover these graphs below")
 tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
 
 ### TAB 1: RESTING BLOOD PRESSURE
-
 with tab1:
   # Transform data
   HEART_DATASETS['HeartDisease'] = pd.to_numeric(HEART_DATASETS['HeartDisease'], errors='coerce')
@@ -85,19 +84,14 @@ with tab1:
         filtered_data = HEART_DATASETS[HEART_DATASETS['Gender'] == 'Male']
     else:
         filtered_data = HEART_DATASETS[HEART_DATASETS['Gender'] == 'Female']
-    
     grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
-    
     return grouped_data
 
   # Store the initial value of widgets in session state
   if "disabled" not in st.session_state:
     st.session_state.disabled = False
 
-  # Define the layout
-  tab1, tab2 = st.tabs(["Tab 1", "Tab 2"])
-
-  with tab1:
+  # Divide columns
     col1, col2 = st.columns([3, 4])
     with col1:
         overview = st.checkbox("Patients Gender", key="disabled")
