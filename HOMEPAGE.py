@@ -74,64 +74,58 @@ tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram
 
 ### TAB 1: RESTING BLOOD PRESSURE
 with tab1:
-  # Transform data
-  HEART_DATASETS['HeartDisease'] = pd.to_numeric(HEART_DATASETS['HeartDisease'], errors='coerce')
-  HEART_DATASETS['ExerciseAngina'] = pd.to_numeric(HEART_DATASETS['ExerciseAngina'], errors='coerce')
-  HEART_DATASETS['FastingBS'] = pd.to_numeric(HEART_DATASETS['FastingBS'], errors='coerce')
+    # Transform data
+    HEART_DATASETS['HeartDisease'] = pd.to_numeric(HEART_DATASETS['HeartDisease'], errors='coerce')
+    HEART_DATASETS['ExerciseAngina'] = pd.to_numeric(HEART_DATASETS['ExerciseAngina'], errors='coerce')
+    HEART_DATASETS['FastingBS'] = pd.to_numeric(HEART_DATASETS['FastingBS'], errors='coerce')
 
-  # Transform data
-  HEART_DATASETS['HeartDisease'] = pd.to_numeric(HEART_DATASETS['HeartDisease'], errors='coerce')
-  HEART_DATASETS['ExerciseAngina'] = pd.to_numeric(HEART_DATASETS['ExerciseAngina'], errors='coerce')
-  HEART_DATASETS['FastingBS'] = pd.to_numeric(HEART_DATASETS['FastingBS'], errors='coerce')
+    # Define the function to get category data
+    def get_category_data(gender, category):
+        if gender == "Male":
+            filtered_data = HEART_DATASETS[HEART_DATASETS['Gender'] == 'Male']
+        else:
+            filtered_data = HEART_DATASETS[HEART_DATASETS['Gender'] == 'Female']
+        grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
+        return filtered_data, grouped_data
 
-# Define the function to get category data
-def get_category_data(gender, category):
-    if gender == "Male":
-        filtered_data = HEART_DATASETS[HEART_DATASETS['Gender'] == 'Male']
-    else:
-        filtered_data = HEART_DATASETS[HEART_DATASETS['Gender'] == 'Female']
-    grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
-    return filtered_data, grouped_data
+    if "disabled" not in st.session_state:
+        st.session_state.disabled = False
 
-  # Store the initial value of widgets in session state
-  if "disabled" not in st.session_state:
-     st.session_state.disabled = False
+    # Divide columns
+    col1, col2 = st.columns([3, 4])
+    with col1:
+        overview = st.checkbox("Patients Gender", key="disabled")
+        age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
+    with col2:
+        rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
 
-  # Divide columns
-  col1, col2 = st.columns([3, 4])
-  with col1:
-    overview = st.checkbox("Patients Gender", key="disabled")
-    age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
-  with col2:
-    rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
+    # Create a container for the scatter plot
+    scatter_container = st.container()
 
-  # Create a container for the scatter plot
-  scatter_container = st.container()
+    # Define a function to generate the scatter plot
+    def generate_scatter_plot(data, x_axis, y_axis, color):
+        fig = px.scatter(data, x=x_axis, y=y_axis, color=color)
+        return fig
 
-  # Define a function to generate the scatter plot
-  def generate_scatter_plot(data, x_axis, y_axis, color):
-    fig = px.scatter(data, x=x_axis, y=y_axis, color=color)
-    return fig
-
-  # Use the function to generate the scatter plot based on user input
-  if overview:
-    if age_type == "Male":
-        data = male_data
-    else:
-        data = female_data
-    
-    if rank == "Heart Disease":
-        x_axis = "HeartDisease"
-        y_axis = "RestingBP"
-        color = "HeartDisease"
-    elif rank == "Exercise Angina":
-        x_axis = "ExerciseAngina"
-        y_axis = "RestingBP"
-        color = "ExerciseAngina"
-    else:
-        x_axis = "FastingBS"
-        y_axis = "RestingBP"
-        color = "FastingBS"
-    
-    fig = generate_scatter_plot(data, x_axis, y_axis, color)
-    scatter_container.plotly_chart(fig, use_container_width=True)
+    # Use the function to generate the scatter plot based on user input
+    if overview:
+        if age_type == "Male":
+            data, _ = get_category_data("Male", rank)
+        else:
+            data, _ = get_category_data("Female", rank)
+        
+        if rank == "HeartDisease":
+            x_axis = "HeartDisease"
+            y_axis = "RestingBP"
+            color = "HeartDisease"
+        elif rank == "ExerciseAngina":
+            x_axis = "ExerciseAngina"
+            y_axis = "RestingBP"
+            color = "ExerciseAngina"
+        else:
+            x_axis = "FastingBS"
+            y_axis = "RestingBP"
+            color = "FastingBS"
+        
+        fig = generate_scatter_plot(data, x_axis, y_axis, color)
+        scatter_container.plotly_chart(fig, use_container_width=True)
