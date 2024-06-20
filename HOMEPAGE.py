@@ -79,8 +79,13 @@ with tab1:
   HEART_DATASETS['ExerciseAngina'] = pd.to_numeric(HEART_DATASETS['ExerciseAngina'], errors='coerce')
   HEART_DATASETS['FastingBS'] = pd.to_numeric(HEART_DATASETS['FastingBS'], errors='coerce')
 
-  # Define the function to get category data
-  def get_category_data(gender, category):
+  # Transform data
+  HEART_DATASETS['HeartDisease'] = pd.to_numeric(HEART_DATASETS['HeartDisease'], errors='coerce')
+  HEART_DATASETS['ExerciseAngina'] = pd.to_numeric(HEART_DATASETS['ExerciseAngina'], errors='coerce')
+  HEART_DATASETS['FastingBS'] = pd.to_numeric(HEART_DATASETS['FastingBS'], errors='coerce')
+
+# Define the function to get category data
+def get_category_data(gender, category):
     if gender == "Male":
         filtered_data = HEART_DATASETS[HEART_DATASETS['Gender'] == 'Male']
     else:
@@ -109,5 +114,5 @@ with tab1:
 
   # Create a scatterplot for Age vs RestingBP colored by the selected category
   fig = px.scatter(filtered_data, x='Age', y='RestingBP', color=rank, title=f"Age vs Resting Blood Pressure ({age_type})",
-                   labels={'Age': 'Age (years)', 'RestingBP': 'Resting Blood Pressure (mm Hg)', rank: rank})
+                 labels={'Age': 'Age (years)', 'RestingBP': 'Resting Blood Pressure (mm Hg)', rank: rank})
   st.plotly_chart(fig)
