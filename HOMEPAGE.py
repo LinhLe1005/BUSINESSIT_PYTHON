@@ -105,14 +105,33 @@ def get_category_data(gender, category):
   with col2:
     rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
 
-  # Get data based on user selection
-  filtered_data, category_data = get_category_data(age_type, rank)
+# Create a container for the scatter plot
+scatter_container = st.container()
 
-  # Display the grouped data
-  st.subheader(f"{rank} Distribution for {age_type} Patients")
-  st.dataframe(category_data)
+# Define a function to generate the scatter plot
+def generate_scatter_plot(data, x_axis, y_axis, color):
+    fig = px.scatter(data, x=x_axis, y=y_axis, color=color)
+    return fig
 
-  # Create a scatterplot for Age vs RestingBP colored by the selected category
-  fig = px.scatter(filtered_data, x='Age', y='RestingBP', color=rank, title=f"Age vs Resting Blood Pressure ({age_type})",
-                 labels={'Age': 'Age (years)', 'RestingBP': 'Resting Blood Pressure (mm Hg)', rank: rank})
-  st.plotly_chart(fig)
+# Use the function to generate the scatter plot based on user input
+if overview:
+    if age_type == "Male":
+        data = male_data
+    else:
+        data = female_data
+    
+    if rank == "Heart Disease":
+        x_axis = "HeartDisease"
+        y_axis = "RestingBP"
+        color = "HeartDisease"
+    elif rank == "Exercise Angina":
+        x_axis = "ExerciseAngina"
+        y_axis = "RestingBP"
+        color = "ExerciseAngina"
+    else:
+        x_axis = "FastingBS"
+        y_axis = "RestingBP"
+        color = "FastingBS"
+    
+    fig = generate_scatter_plot(data, x_axis, y_axis, color)
+    scatter_container.plotly_chart(fig, use_container_width=True)
