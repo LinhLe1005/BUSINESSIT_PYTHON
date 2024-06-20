@@ -75,12 +75,12 @@ tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram
 
 with tab1:
   # Transform data
-HEART_DATASETS['HeartDisease'] = pd.to_numeric(HEART_DATASETS['HeartDisease'], errors='coerce')
-HEART_DATASETS['ExerciseAngina'] = pd.to_numeric(HEART_DATASETS['ExerciseAngina'], errors='coerce')
-HEART_DATASETS['FastingBS'] = pd.to_numeric(HEART_DATASETS['FastingBS'], errors='coerce')
+  HEART_DATASETS['HeartDisease'] = pd.to_numeric(HEART_DATASETS['HeartDisease'], errors='coerce')
+  HEART_DATASETS['ExerciseAngina'] = pd.to_numeric(HEART_DATASETS['ExerciseAngina'], errors='coerce')
+  HEART_DATASETS['FastingBS'] = pd.to_numeric(HEART_DATASETS['FastingBS'], errors='coerce')
 
-# Define the function to get category data
-def get_category_data(gender, category):
+  # Define the function to get category data
+  def get_category_data(gender, category):
     if gender == "Male":
         filtered_data = HEART_DATASETS[HEART_DATASETS['Gender'] == 'Male']
     else:
@@ -90,14 +90,14 @@ def get_category_data(gender, category):
     
     return grouped_data
 
-# Store the initial value of widgets in session state
-if "disabled" not in st.session_state:
+  # Store the initial value of widgets in session state
+  if "disabled" not in st.session_state:
     st.session_state.disabled = False
 
-# Define the layout
-tab1, tab2 = st.tabs(["Tab 1", "Tab 2"])
+  # Define the layout
+  tab1, tab2 = st.tabs(["Tab 1", "Tab 2"])
 
-with tab1:
+  with tab1:
     col1, col2 = st.columns([3, 4])
     with col1:
         overview = st.checkbox("Patients Gender", key="disabled")
@@ -116,8 +116,8 @@ with tab1:
   
 
 
-### TAB 2:
-with tab2:
+  ### TAB 2:
+  with tab2:
   st.header("This is the graph")
   
   # defining specific colors
