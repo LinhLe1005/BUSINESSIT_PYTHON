@@ -95,7 +95,7 @@ def get_category_data(gender, category):
 
   # Store the initial value of widgets in session state
   if "disabled" not in st.session_state:
-    st.session_state.disabled = False
+     st.session_state.disabled = False
 
   # Divide columns
   col1, col2 = st.columns([3, 4])
@@ -105,16 +105,16 @@ def get_category_data(gender, category):
   with col2:
     rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
 
-# Create a container for the scatter plot
-scatter_container = st.container()
+  # Create a container for the scatter plot
+  scatter_container = st.container()
 
-# Define a function to generate the scatter plot
-def generate_scatter_plot(data, x_axis, y_axis, color):
+  # Define a function to generate the scatter plot
+  def generate_scatter_plot(data, x_axis, y_axis, color):
     fig = px.scatter(data, x=x_axis, y=y_axis, color=color)
     return fig
 
-# Use the function to generate the scatter plot based on user input
-if overview:
+  # Use the function to generate the scatter plot based on user input
+  if overview:
     if age_type == "Male":
         data = male_data
     else:
