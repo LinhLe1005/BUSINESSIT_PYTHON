@@ -127,5 +127,27 @@ with tab1:
             y_axis = "RestingBP"
             color = "FastingBS"
         
-        fig = generate_scatter_plot(data, x_axis, y_axis, color)
-        scatter_container.plotly_chart(fig, use_container_width=True)
+  # Define a function to generate the scatter plot
+  def generate_scatter_plot(data, x_axis, y_axis, color):
+    fig = px.scatter(data, x=x_axis, y=y_axis, color=color)
+    return fig
+
+  # Define a list of variables for each axis and color
+  x_axis_vars = ['HeartDisease', 'ExerciseAngina', 'FastingBS']
+  y_axis_vars = ['RestingBP', 'HeartDisease', 'ExerciseAngina']
+  color_vars = ['HeartDisease', 'ExerciseAngina', 'FastingBS']
+
+  # Use the function to generate the scatter plot based on user input
+  if overview:
+    if age_type == "Male":
+        data = male_data
+    else:
+        data = female_data
+    
+    # Get the selected variables for x_axis, y_axis, and color
+    x_axis = x_axis_vars[rank_index]
+    y_axis = y_axis_vars[rank_index]
+    color = color_vars[rank_index]
+    
+    fig = generate_scatter_plot(data, x_axis, y_axis, color)
+    scatter_container.plotly_chart(fig, use_container_width=True)
