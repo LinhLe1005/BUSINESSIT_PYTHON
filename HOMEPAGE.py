@@ -71,6 +71,7 @@ st.write("Let's discover these graphs below")
 # Initial 3 tabs for each type of variables
 tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
 
+
 ### TAB 1: RESTING BLOOD PRESSURE
 with tab1:
   # Transform data
@@ -85,7 +86,7 @@ with tab1:
     else:
         filtered_data = HEART_DATASETS[HEART_DATASETS['Gender'] == 'Female']
     grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
-    return grouped_data
+    return filtered_data, grouped_data
 
   # Store the initial value of widgets in session state
   if "disabled" not in st.session_state:
@@ -94,17 +95,19 @@ with tab1:
   # Divide columns
   col1, col2 = st.columns([3, 4])
   with col1:
-       overview = st.checkbox("Patients Gender", key="disabled")
-       age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
+    overview = st.checkbox("Patients Gender", key="disabled")
+    age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
   with col2:
-       rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
+    rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
 
-  # Create a container for displaying scatterplot
-  with st.container():
-       if overview:
-            category_data = get_category_data(age_type, rank)
-            st.subheader(f"{rank} Distribution for {age_type} Patients")
-            st.dataframe(category_data)
-            fig = px.bar(category_data, x=rank, y='Count', title=f"{rank} Distribution for {age_type} Patients")
-            st.plotly_chart(fig)
-  
+  # Get data based on user selection
+  filtered_data, category_data = get_category_data(age_type, rank)
+
+  # Display the grouped data
+  st.subheader(f"{rank} Distribution for {age_type} Patients")
+  st.dataframe(category_data)
+
+  # Create a scatterplot for Age vs RestingBP colored by the selected category
+  fig = px.scatter(filtered_data, x='Age', y='RestingBP', color=rank, title=f"Age vs Resting Blood Pressure ({age_type})",
+                   labels={'Age': 'Age (years)', 'RestingBP': 'Resting Blood Pressure (mm Hg)', rank: rank})
+  st.plotly_chart(fig)
