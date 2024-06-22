@@ -128,5 +128,6 @@ with tab1:
             y_axis = "RestingBP"
             color = "FastingBS"
         
+      
         fig = generate_scatter_plot(data, x_axis, y_axis, color)
-        scatter_container.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True)
