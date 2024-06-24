@@ -76,15 +76,11 @@ with tab1:
 
     col1, col2 = st.columns([3, 4])
     with col1:
-        overview = st.checkbox("Patients Gender", key="disabled")
         age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
     with col2:
         rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
 
     filtered_data, category_data = get_category_data(age_type, rank)
-
-    st.subheader(f"{rank} Distribution for {age_type} Patients")
-    st.dataframe(category_data)
 
     # Adjust visualization as needed
     fig = px.scatter(filtered_data, x='Age', y='RestingBP', color=rank, title=f"Age vs Resting Blood Pressure ({age_type})",
