@@ -82,7 +82,7 @@ with tab1:
    # Define the function to get category data
    def get_category_data(gender, category):
      if gender == "Male":
-        filtered_data = HEART_DATASETS[['Gender'] == 'Male']
+        filtered_data = [HEART_DATASETS['Gender'] == 'Male']
      else:
         filtered_data = HEART_DATASETS[HEART_DATASETS['Gender'] == 'Female']
      grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
