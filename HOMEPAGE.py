@@ -96,7 +96,7 @@ with tab1:
 ### TAB 2: RESTING ELECTROCARDIOGRAM RESULT
 with tab2:
     # Simplify data retrieval function
-    def get_category_data(heartdisease, category):
+    def get_category_data(category):
        filtered_data = HEART_DATASETS[HEART_DATASETS['HeartDisease'] == heartdisease]
        grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
        return filtered_data, grouped_data
@@ -106,7 +106,7 @@ with tab2:
        st.session_state['disabled'] = False
 
     # Creating a diverse data
-    var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key="var", disabled=st.session_state.disabled)
+    var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key="var")
     colors = ["#008170", "#512B81", "#4af9e7"]
     filtered_data = get_category_data(var)  
 
@@ -116,3 +116,4 @@ with tab2:
 
     # Display chart
     st.plotly_chart(fig2)
+
