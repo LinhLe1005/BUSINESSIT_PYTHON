@@ -106,7 +106,7 @@ with tab2:
 
 with tab2:
     # Simplify data retrieval function
-   def get_category_data(category):
+    def get_category_data(category):
         filtered_data = HEART_DATASETS[HEART_DATASETS['Sex'] == gender]
         grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
         return filtered_data, grouped_data
