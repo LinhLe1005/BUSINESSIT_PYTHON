@@ -119,7 +119,7 @@ with tab2:
         st.session_state['disabled'] = False
 
     # Dividing column for diverse data
-    var = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="var", disabled=st.session_state.disabled)
+    var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var', disabled=st.session_state.disabled)
     colors2 = ["#6FED84", "#F57893","#6F89ED"]
     filtered_data, category_data = get_category_data(var)  
 
