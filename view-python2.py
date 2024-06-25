@@ -102,7 +102,7 @@ with tab2:
       var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var', disabled=st.session_state.disabled)
       colors = ["#008170", "#512B81","#4af9e7"]
      # filtered_data = get_category_data(var)
-      fig2 = px.box(HEART_DATASETS[var], x="RestingECG", y="MaxHR", color=var, points="outliers",
+      fig2 = sns.boxplot(HEART_DATASETS[var], x="RestingECG", y="MaxHR", color=var, points="outliers",
                     title=f"Max Heart Rate by Resting Electrocardiogram results and {rank}",
                     labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", rank: rank},
                     template="plotly_dark")
