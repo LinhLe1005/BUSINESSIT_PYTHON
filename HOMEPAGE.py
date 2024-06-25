@@ -108,9 +108,9 @@ with tab2:
     # Dividing column for diverse data
     col1, col2 = st.columns([3, 4])
     with col1:
-       heartdisease_type = st.radio("Do you want to see the chart which has heart disease? 👇", ["HeartDisease", "Normal"], key="visibility", disabled=st.session_state.disabled)
+       heartdisease_type = st.radio("Do you want to see the chart which has heart disease? 👇", ["HeartDisease", "Normal"], key="heart", disabled=st.session_state.disabled)
     with col2:
-       var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
+       var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key="var", disabled=st.session_state.disabled)
        colors = ["#008170", "#512B81", "#4af9e7"]
     filtered_data, category_data = get_category_data(heartdisease_type, var)  
 
