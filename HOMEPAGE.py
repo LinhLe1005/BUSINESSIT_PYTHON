@@ -4,11 +4,11 @@ import plotly.express as px
 
 HEART_DATASETS = pd.read_csv('HEART_DATASETS.csv')
 
-# SETTING PAGE
+# SETTING TITLE PAGE
 st.set_page_config(page_icon="chart_with_upwards_trend", page_title="BUSINESS IT 2 - PYTHON PROJECT 2", layout="wide")
 with st.container():
   st.subheader("Group 10")
-  st.title(":orange[PYTHON 2 - BUSINESS IT 2 Thursday Morning 🧐]")
+  st.title(":red[PYTHON 2 - BUSINESS IT 2 Thursday Morning 🧐]")
   st.write("""💁🏻 Since all members of our group are interested in what causes the most deaths globally, and this dataset appears with various numbers with its reasons,  we want to find out the data have an Intuitive view through different types of charts. In the process of finding a data set for the R Studio project, we were impressed by the information “taking an estimated 17.9 million lives each year,  which accounts for 31% of all deaths worldwide”, which was a huge statistic.  This data set is not only in the field we enjoy but also has a standard structure we need for the project.
 """)
 
@@ -16,13 +16,13 @@ st.divider()
 
 
 # SETTING SIDEBAR
-st.sidebar.write('*🧑🏻‍🏫 Instructor: Dr. Tan Duc Do*')
-st.sidebar.write('*ℹ️ Group Members:*')
+st.sidebar.write('**🧑🏻‍🏫 :orange[Instructor: Dr. Tan Duc Do]**')
+st.sidebar.write('**ℹ️ :orange[Group Members:]**')
 with st.sidebar:
-    st.write('Le Phuong Linh - 10323049')
-    st.write('Nguyen Minh Tri - 10623045')
-    st.write('Nguyen Nhu Ngoc - 10323019')
-    st.write('Pham Dinh Khanh Ngoc - 10623033')
+    st.write(':blue[Le Phuong Linh - 10323049]')
+    st.write(':violet[Nguyen Minh Tri - 10623045]')
+    st.write(':blue[Nguyen Nhu Ngoc - 10323019]')
+    st.write(':violet[Pham Dinh Khanh Ngoc - 10623033]')
 
 
 # SETTING DATASETS
