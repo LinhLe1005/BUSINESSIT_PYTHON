@@ -83,13 +83,13 @@ with tab1:
         age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
     with col2:
         rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
-        colors1 = ["#EDCC6F", "#F57893"]
+        colors1 = ["#EDCC6F", "#6F89ED"]
     filtered_data, category_data = get_category_data(age_type, rank)
 
     # Plotting chart
     fig1 = px.scatter(filtered_data, x='Age', y='RestingBP', color=rank, title=f"Age vs Resting Blood Pressure ({age_type})",
                       labels={'Age': 'Age (years)', 'RestingBP': 'Resting Blood Pressure (mm Hg)', rank: rank}, 
-                      color_discrete_map={"HeartDisease": colors1[0], "ExerciseAngina": colors1[1]})
+                      color_discrete_map={"HeartDisease": colors1[0], "ExerciseAngina": colors1[0], "FastingBS": colors1[0]})
 
     # Display chart
     st.plotly_chart(fig1)
