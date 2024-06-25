@@ -90,6 +90,10 @@ with tab1:
 ### TAB 2: RESTING ELECTROCARDIOGRAM RESULT
 
 with tab2:
+    #def get_category_data(category):
+     #   filtered_data = HEART_DATASETS[HEART_DATASETS['Sex'] == gender]
+      #  grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
+       # return filtered_data, grouped_data
     if "disabled" not in st.session_state:
         st.session_state['disabled'] = False
 
@@ -97,8 +101,8 @@ with tab2:
     with col2:
       var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var', disabled=st.session_state.disabled)
       colors = ["#008170", "#512B81","#4af9e7"]
-      filtered_data = get_category_data(var)
-      fig2 = px.boxplot(filtered_data, x="RestingECG", y="MaxHR", color=var, points="outliers",
+     # filtered_data = get_category_data(var)
+      fig2 = px.boxplot(HEART_DATASETS[var], x="RestingECG", y="MaxHR", color=var, points="outliers",
                     title=f"Max Heart Rate by Resting Electrocardiogram results and {rank}",
                     labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", rank: rank},
                     template="plotly_dark")
