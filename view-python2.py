@@ -87,8 +87,6 @@ with tab1:
                      labels={'Age': 'Age (years)', 'RestingBP': 'Resting Blood Pressure (mm Hg)', rank: rank})
     st.plotly_chart(fig)
 
-### TAB 2 : Resting Electrocardiogram result
-
 ### TAB 2: RESTING ELECTROCARDIOGRAM RESULT
 with tab2:
     if "disabled" not in st.session_state:
@@ -96,11 +94,28 @@ with tab2:
 
     col1, col2 = st.columns([3, 4])
     with col2:
-        rank = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
-    colors = ["#008170", "#512B81","#4af9e7"]
-    filtered_data = HEART_DATASETS
-    fig2 = px.boxplot(filtered_data, x="RestingECG", y="MaxHR", color=colors, points="outliers",
-                  title=f"Max Heart Rate by Resting Electrocardiogram results and {rank}",
-                  labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", rank: rank},
-                  template="plotly_dark")
-    st.plotly_chart(fig2)
+      rank = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
+      colors = ["#008170", "#512B81","#4af9e7"]
+      filtered_data = HEART_DATASETS
+      fig2 = px.boxplot(filtered_data, x="RestingECG", y="MaxHR", color=colors, points="outliers",
+                    title=f"Max Heart Rate by Resting Electrocardiogram results and {rank}",
+                    labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", rank: rank},
+                    template="plotly_dark")
+      st.plotly_chart(fig2)
+
+with tab3:
+    # Sample data
+  options = ['Option 1', 'Option 2', 'Option 3']
+  
+  # Selectbox
+  selected_option = st.selectbox(
+      label='Choose an option:',
+      options=options,
+      index=1,  # Default is 'Option 2'
+      format_func=lambda x: f"🔹 {x}",  # Display options with a bullet point
+      key='selectbox_example',
+      help='Select an option from the dropdown.'
+  )
+  
+  # Display the selected option
+  st.write('You selected:', selected_option)
