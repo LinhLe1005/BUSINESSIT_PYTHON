@@ -126,7 +126,8 @@ with tab2:
 
     # Plotting chart
     fig2 = px.box(filtered_data, x="RestingECG", y="MaxHR", color=var, points="outliers", title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",
-                  labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", var: var}, template="plotly_dark")
+                  labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", var: var}, template="plotly_dark", 
+                  color_discrete_map={value: color for value, color in zip(filtered_data[var].unique(), colors2)})
 
     # Display chart
     st.plotly_chart(fig2)
