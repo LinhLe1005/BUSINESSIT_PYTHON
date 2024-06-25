@@ -89,7 +89,7 @@ with tab1:
     # Plotting chart
     fig1 = px.scatter(filtered_data, x='Age', y='RestingBP', color=rank, title=f"Age vs Resting Blood Pressure ({age_type})",
                      labels={'Age': 'Age (years)', 'RestingBP': 'Resting Blood Pressure (mm Hg)', rank: rank}, 
-                      color_discrete_map={"HeartDisease": "#EDCC6F", "ExerciseAngina": "#F57893", "FastingBS": "#EDCC6F"})
+                      color_discrete_map={"HeartDisease": "#6FED84", "ExerciseAngina": "#F57893", "FastingBS": "#6F89ED"})
 
     # Display chart
     st.plotly_chart(fig1)
