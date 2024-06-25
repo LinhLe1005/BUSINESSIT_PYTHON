@@ -97,21 +97,21 @@ with tab2:
     col1, col2 = st.columns([3, 4])
   
     with col2:
-        rank = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
+        var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
 
     filtered_data, category_data = get_category_data(rank)
 
-fig = px.box(
-    filtered_data,
-    x="RestingECG",
-    y="MaxHR",
-    color=rank,
-    points="all",
-    title=f"Max Heart Rate distribute by Resting Electrocardiogram results with ({var})",
-    labels={"total_bill": "Total Bill ($)", "day": "Day of the Week"},
-    template="plotly_dark",
-    hover_data=["smoker", "time"],
-    height=600,
-    width=800,
-    range_y=[0, 60]
-)
+    fig2 = px.box(filtered_data,
+        x="RestingECG",
+        y="MaxHR",
+        color=var,
+        points="all",
+        title=f"Max Heart Rate distribute by Resting Electrocardiogram results with ({var})",
+        labels={"total_bill": "Total Bill ($)", "day": "Day of the Week"},
+        template="plotly_dark",
+        hover_data=["smoker", "time"],
+        height=600,
+        width=800,
+        range_y=[0, 60]
+    )
+    st.plotly_chart(fig2)
