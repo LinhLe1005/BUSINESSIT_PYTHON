@@ -114,7 +114,7 @@ with tab2:
     filtered_data, grouped_data = get_category_data(var)
 
     # Plotting chart
-    fig2 = px.box(HEART_DATASETS[var], x="RestingECG", y="MaxHR", color=var, points="outliers", title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",
+    fig2 = px.box(filtered_data, x="RestingECG", y="MaxHR", color=var, points="outliers", title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",
                   labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", rank: var},template="plotly_dark")
 
     # Display chart
