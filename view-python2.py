@@ -86,3 +86,32 @@ with tab1:
     fig = px.scatter(filtered_data, x='Age', y='RestingBP', color=rank, title=f"Age vs Resting Blood Pressure ({age_type})",
                      labels={'Age': 'Age (years)', 'RestingBP': 'Resting Blood Pressure (mm Hg)', rank: rank})
     st.plotly_chart(fig)
+
+### TAB 2 : Resting Electrocardiogram result
+
+with tab1:
+    # Initialize widgets more efficiently
+    if "disabled" not in st.session_state:
+        st.session_state['disabled'] = False
+
+    col1, col2 = st.columns([3, 4])
+  
+    with col2:
+        rank = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
+
+    filtered_data, category_data = get_category_data(rank)
+
+fig = px.box(
+    filtered_data,
+    x="RestingECG",
+    y="MaxHR",
+    color=rank,
+    points="all",
+    title=f"Max Heart Rate distribute by Resting Electrocardiogram results with ({var})",
+    labels={"total_bill": "Total Bill ($)", "day": "Day of the Week"},
+    template="plotly_dark",
+    hover_data=["smoker", "time"],
+    height=600,
+    width=800,
+    range_y=[0, 60]
+)
