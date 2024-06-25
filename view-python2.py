@@ -99,7 +99,7 @@ with tab2:
 
     col1, col2 = st.columns([3, 4])
     with col2:
-      var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var', disabled=st.session_state.disabled)
+      var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var')
       colors = ["#008170", "#512B81","#4af9e7"]
      # filtered_data = get_category_data(var)
       fig2 = px.box(HEART_DATASETS[var], x="RestingECG", y="MaxHR", color=var, points="outliers",
