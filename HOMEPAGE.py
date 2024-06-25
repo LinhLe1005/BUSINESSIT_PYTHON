@@ -106,10 +106,13 @@ with tab2:
 
 with tab2:
     # Simplify data retrieval function
-    def get_category_data(category):
+    def get_category_data(category, gender=None):
+      if gender:
         filtered_data = HEART_DATASETS[HEART_DATASETS['Sex'] == gender]
-        grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
-        return filtered_data, grouped_data
+      else:
+        filtered_data = HEART_DATASETS
+      grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
+      return filtered_data, grouped_data
       
     # Initialize widgets more efficiently
     if "disabled" not in st.session_state:
