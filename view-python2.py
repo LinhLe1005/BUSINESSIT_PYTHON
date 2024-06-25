@@ -97,7 +97,7 @@ with tab2:
     with col2:
       rank = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
       colors = ["#008170", "#512B81","#4af9e7"]
-      filtered_data = HEART_DATASETS
+      filtered_data = get_category_data(rank)
       fig2 = px.boxplot(filtered_data, x="RestingECG", y="MaxHR", color="ExerciseAngina", points="outliers",
                     title=f"Max Heart Rate by Resting Electrocardiogram results and {rank}",
                     labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", rank: rank},
