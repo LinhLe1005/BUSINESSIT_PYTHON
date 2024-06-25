@@ -83,14 +83,14 @@ with tab1:
     filtered_data, category_data = get_category_data(age_type, rank)
 
     # Adjust visualization as needed
-    fig = px.scatter(filtered_data, x='Age', y='RestingBP', color=rank, title=f"Age vs Resting Blood Pressure ({age_type})",
+    fig1 = px.scatter(filtered_data, x='Age', y='RestingBP', color=rank, title=f"Age vs Resting Blood Pressure ({age_type})",
                      labels={'Age': 'Age (years)', 'RestingBP': 'Resting Blood Pressure (mm Hg)', rank: rank})
-    st.plotly_chart(fig)
+    st.plotly_chart(fig1)
 
 ### TAB 2: RESTING ELECTROCARDIOGRAM RESULT
 
 with tab2:
-    # def get_category_data(category):
+    def get_category_data(category):
          filtered_data = HEART_DATASETS[HEART_DATASETS['Sex'] == gender]
          grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
          return filtered_data, grouped_data
@@ -102,5 +102,6 @@ with tab2:
       var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var')
       colors = ["#008170", "#512B81","#4af9e7"]
       filtered_data = get_category_data(var)
-      fig2 = px.box(filtered_data, x="RestingECG", y="MaxHR", color=var, points="outliers",title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", rank: var},template="plotly_dark")
+      fig2 = px.box(filtered_data, x="RestingECG", y="MaxHR", color=var, points="outliers", title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",
+                    labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", rank: var}, template="plotly_dark")
       st.plotly_chart(fig2)
