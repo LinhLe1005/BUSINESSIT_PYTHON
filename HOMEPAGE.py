@@ -118,7 +118,7 @@ with tab2:
     # Dividing column for diverse data
     rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="var", disabled=st.session_state.disabled)
     colors2 = ["#6FED84", "#F57893","#6F89ED"]
-    filtered_data, category_data = get_category_data(heartdisease_type, var)  
+    filtered_data, category_data = get_category_data(var)  
 
 
     # Plotting chart
