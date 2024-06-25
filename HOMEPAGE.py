@@ -83,7 +83,7 @@ with tab1:
         age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
     with col2:
         rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
-        colors1 = ["#EDCC6F", "#6F89ED"]
+        colors1 = ["#F57893", "#6FED84"]
     filtered_data, category_data = get_category_data(age_type, rank)
 
     # Plotting chart
