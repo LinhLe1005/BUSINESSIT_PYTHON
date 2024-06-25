@@ -90,18 +90,27 @@ with tab1:
 ### TAB 2: RESTING ELECTROCARDIOGRAM RESULT
 
 with tab2:
-    def get_category_data(category):
-         filtered_data = HEART_DATASETS[HEART_DATASETS['Sex'] == gender]
-         grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
-         return filtered_data, grouped_data
-    if "disabled" not in st.session_state:
-        st.session_state['disabled'] = False
+  # Function to get category data
+  def get_category_data(category, gender=None):
+    if gender:
+        filtered_data = HEART_DATASETS[HEART_DATASETS['Sex'] == gender]
+    else:
+        filtered_data = HEART_DATASETS
+    
+    grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
+    return filtered_data, grouped_data
 
-    col1, col2 = st.columns([3, 4])
-    with col2:
-      var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var')
-      colors = ["#008170", "#512B81","#4af9e7"]
-      filtered_data = get_category_data(var)
-      fig2 = px.box(filtered_data, x="RestingECG", y="MaxHR", color=var, points="outliers", title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",
-                    labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", rank: var}, template="plotly_dark")
-      st.plotly_chart(fig2)
+  # Main code
+  if "disabled" not in st.session_state:
+    st.session_state['disabled'] = False
+
+  col1, col2 = st.columns([3, 4])
+  with col2:
+    var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var')
+    colors = ["#008170", "#512B81", "#4af9e7"]
+
+    filtered_data, grouped_data = get_category_data(var)  # Get filtered and grouped data
+
+    fig2 = px.box(filtered_data, x="RestingECG", y="MaxHR", color=var, points="outliers", title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",
+                  labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", var: var}, template="plotly_dark")
+    st.plotly_chart(fig2)
