@@ -19,25 +19,28 @@ st.divider()
 st.sidebar.write('**🧑🏻‍🏫 :orange[Instructor: Dr. Tan Duc Do]**')
 st.sidebar.write('**ℹ️ :orange[Group Members:]**')
 with st.sidebar:
-    st.write(':blue[Le Phuong Linh - 10323049]')
-    st.write(':violet[Nguyen Minh Tri - 10623045]')
-    st.write(':blue[Nguyen Nhu Ngoc - 10323019]')
-    st.write(':violet[Pham Dinh Khanh Ngoc - 10623033]')
+    st.write('Le Phuong Linh - 10323049')
+    st.write('Nguyen Minh Tri - 10623045')
+    st.write('Nguyen Nhu Ngoc - 10323019')
+    st.write('Pham Dinh Khanh Ngoc - 10623033')
 
 
 # SETTING DATASETS
 with st.container():
   st.header("Information about Cardiovascular Disease 🫀")
-  st.write("[Viewing our dataset]")
+  st.write("Let's see the dataset we choose ")
   st.write(HEART_DATASETS)
+  
   st.write("*✴️ REASONS CHOSE THE DATASETS*")
   st.write("""
   The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases. Also, it has many variables, such as categorical variables and real variables. And we believe that with its diversity of information, we can analyze these data into intuitive charts.
   """)
+  
   st.write("*👨🏻‍💻 AUTHOR OF THE DATASETS*")
   st.write("""
   FEDESORIANO - Data Scientist at Kaggle - Madrid, Community of Madrid, Spain
   """)
+  
   st.write("*🔖 VARIABLES OF THE DATASETS*")
   st.write(
         """Our data frame contains these main variables as follows:
@@ -58,9 +61,9 @@ st.divider()
 # SETTING CHARTS
 st.header("Factors Affecting Individual's Health Problems")
 st.write("Let's discover these graphs below")
+
 # Initial 3 tabs for each type of variables
 tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
-
 
 ### TAB 1: RESTING BLOOD PRESSURE
 with tab1:
@@ -74,6 +77,7 @@ with tab1:
     if "disabled" not in st.session_state:
         st.session_state['disabled'] = False
 
+    # Dividing column for diverse data
     col1, col2 = st.columns([3, 4])
     with col1:
         age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
@@ -82,13 +86,14 @@ with tab1:
 
     filtered_data, category_data = get_category_data(age_type, rank)
 
-    # Adjust visualization as needed
+    # Plotting chart
     fig1 = px.scatter(filtered_data, x='Age', y='RestingBP', color=rank, title=f"Age vs Resting Blood Pressure ({age_type})",
                      labels={'Age': 'Age (years)', 'RestingBP': 'Resting Blood Pressure (mm Hg)', rank: rank})
+
+    # Display chart
     st.plotly_chart(fig1)
 
 ### TAB 2: RESTING ELECTROCARDIOGRAM RESULT
-
 with tab2:
   # Function to get category data
   def get_category_data(category, gender=None):
@@ -100,16 +105,31 @@ with tab2:
     grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
     return filtered_data, grouped_data
 
-  # Main code
-  if "disabled" not in st.session_state:
-    st.session_state['disabled'] = False
+with tab2:
+    # Simplify data retrieval function
+    def get_category_data(heartdisease, category):
+        filtered_data = HEART_DATASETS[HEART_DATASETS['HeartDisease'] == heartdisease]
+        grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
+        return filtered_data, grouped_data
+      
+    # Initialize widgets more efficiently
+    if "disabled" not in st.session_state:
+        st.session_state['disabled'] = False
+
+    # Dividing column for diverse data
+    col1, col2 = st.columns([3, 4])
+    with col1:
+        heartdisease_type = st.radio("Do you want see the chart who has heart disease? 👇", ["HeartDisease", "Normal"], key="visibility", disabled=st.session_state.disabled)
+    with col2:
+        rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
+        colors = ["#008170", "#512B81", "#4af9e7"]
+
+    filtered_data, category_data = get_category_data(heartdisease_type, rank)  
 
 
-  var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var')
-  colors = ["#008170", "#512B81", "#4af9e7"]
-
-  filtered_data, grouped_data = get_category_data(var)  # Get filtered and grouped data
-
-  fig2 = px.box(filtered_data, x="RestingECG", y="MaxHR", color=var, points="outliers", title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",
+    # Plotting chart
+    fig2 = px.box(filtered_data, x="RestingECG", y="MaxHR", color=var, points="outliers", title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",
                   labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", var: var}, template="plotly_dark")
-  st.plotly_chart(fig2)
+
+    # Display chart
+    st.plotly_chart(fig2)
