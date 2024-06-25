@@ -89,7 +89,7 @@ with tab1:
 
 ### TAB 2 : Resting Electrocardiogram result
 
-with tab1:
+with tab2:
     # Initialize widgets more efficiently
     if "disabled" not in st.session_state:
         st.session_state['disabled'] = False
