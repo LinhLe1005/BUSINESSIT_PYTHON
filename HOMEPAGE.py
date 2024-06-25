@@ -97,28 +97,27 @@ with tab1:
 with tab2:
     # Simplify data retrieval function
     def get_category_data(heartdisease, category):
-        filtered_data = HEART_DATASETS[HEART_DATASETS['HeartDisease'] == heartdisease]
-        grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
-        return filtered_data, grouped_data
-      
-    # Initialize widgets more efficiently
-    if "disabled" not in st.session_state:
-        st.session_state['disabled'] = False
+       filtered_data = HEART_DATASETS[HEART_DATASETS['HeartDisease'] == heartdisease]
+       grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
+       return filtered_data, grouped_data
 
-    # Dividing column for diverse data
-    col1, col2 = st.columns([3, 4])
-    with col1:
-        heartdisease_type = st.radio("Do you want see the chart who has heart disease? 👇", ["HeartDisease", "Normal"], key="visibility", disabled=st.session_state.disabled)
-    with col2:
-        rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
-        colors = ["#008170", "#512B81", "#4af9e7"]
+   # Initialize widgets more efficiently
+   if "disabled" not in st.session_state:
+       st.session_state['disabled'] = False
 
-    filtered_data, category_data = get_category_data(heartdisease_type, rank)  
+   # Dividing column for diverse data
+   col1, col2 = st.columns([3, 4])
+   with col1:
+       heartdisease_type = st.radio("Do you want see the chart who has heart disease? 👇", ["HeartDisease", "Normal"], key="visibility", 
+                                    disabled=st.session_state.disabled)
+   with col2:
+    rank = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
+    colors = ["#008170", "#512B81", "#4af9e7"]
+   filtered_data, category_data = get_category_data(heartdisease_type, rank)  
 
+   # Plotting chart
+   fig2 = px.box(filtered_data, x="RestingECG", y="MaxHR", color=rank, points="outliers", title=f"Max Heart Rate by Resting Electrocardiogram results and {rank}",
+                 labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", rank: rank}, template="plotly_dark")
 
-    # Plotting chart
-    fig2 = px.box(filtered_data, x="RestingECG", y="MaxHR", color=var, points="outliers", title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",
-                  labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", var: var}, template="plotly_dark")
-
-    # Display chart
-    st.plotly_chart(fig2)
+   # Display chart
+   st.plotly_chart(fig2)
