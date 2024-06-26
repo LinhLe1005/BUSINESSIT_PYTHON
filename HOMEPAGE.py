@@ -195,7 +195,7 @@ with tab3:
 
     # Determine color based on chest pain type
     color_index = list(chest_pain_types.keys()).index(next(key for key, value in chest_pain_types.items() if value == num))
-    color = colors[color_index % len(colors3)]
+    color = colors3[color_index % len(colors3)]
 
     # Create area chart
     fig3 = px.area(age_counts, x='Age', y='Count', title=f"Chest Pain Type: {num} by Age Distribution",
