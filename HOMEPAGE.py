@@ -34,7 +34,7 @@ with st.container():
   st.write("Here's a preview of the dataset we are working with:")
   st.write(HEART_DATASETS)
   
-# INFORMATION ABOUT THE DATASET  
+  # INFORMATION ABOUT THE DATASET  
   st.subheader(":violet[✴️ Reasons for selecting the datasets]")
   st.write("""
   The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases (CVDs). 
@@ -81,7 +81,7 @@ st.divider()
 st.header(":blue[Factors Affecting Individual's Health Problems ❤️‍🩹]")
 st.write("*Let's discover these graphs below 👇🏼*")
 
-# Initial 3 tabs for each type of variables
+# Initial 3 tabs for each type of variable
 tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
 
 ### TAB 1: RESTING BLOOD PRESSURE
@@ -96,7 +96,7 @@ with tab1:
     if "disabled" not in st.session_state:
         st.session_state['disabled'] = False
 
-    # Dividing column for diverse data
+    # Dividing column for information & data
     col1, col2 = st.columns([7, 3])
     with col1:
        st.write("""
@@ -131,7 +131,7 @@ with tab2:
     if "disabled" not in st.session_state:
          st.session_state['disabled'] = False
 
-    # Dividing column for diverse data
+    # Dividing column for information & data
     col1, col2 = st.columns([7, 3])
     with col1:
          st.write("""
@@ -178,7 +178,7 @@ with tab3:
     # Define colors for each chest pain type
     colors3 = ["#EDCC6F", "#F57893", "#6FED84", "#6F89ED"]
 
-    # Dividing column for diverse data
+    # Dividing column for information & data
     col1, col2 = st.columns([7, 3])
     with col1:
          st.write("""
@@ -192,7 +192,7 @@ with tab3:
          num = st.selectbox("Which specific chest pain categories are you interested in exploring? 🔍", list(chest_pain_types.values()), key='num', disabled=st.session_state.disabled)
          filtered_data = get_category_data(next(key for key, value in chest_pain_types.items() if value == num))
 
-    # Plotting chart for the selected chest pain type
+    # Plotting chart 
     data = filtered_data[filtered_data['ChestPainType'] == next(key for key, value in chest_pain_types.items() if value == num)]
     age_counts = data['Age'].value_counts().sort_index().reset_index()
     age_counts.columns = ['Age', 'Count']
@@ -201,7 +201,7 @@ with tab3:
     color_index = list(chest_pain_types.keys()).index(next(key for key, value in chest_pain_types.items() if value == num))
     color = colors3[color_index % len(colors3)]
 
-    # Create area chart
+    # Creating chart
     fig3 = px.area(age_counts, x='Age', y='Count', title=f"Chest Pain Type: {num} by Age Distribution",
                    labels={'Age': 'Age (years)', 'Count': 'Number of People'}, template="plotly_dark", color_discrete_sequence=[color])
 
