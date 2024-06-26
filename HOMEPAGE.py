@@ -197,5 +197,5 @@ with tab3:
                         labels={'Age': 'Age', 'Count': 'Count'}, template="plotly_dark", 
                         color_discrete_sequence=[colors[area % len(colors)]])
     
-    # Display chart
-    st.plotly_chart(fig3)
+         # Display chart
+         st.plotly_chart(fig3)
