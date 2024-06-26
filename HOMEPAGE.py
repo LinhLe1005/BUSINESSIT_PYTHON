@@ -96,11 +96,12 @@ with tab1:
     # Dividing column for diverse data
     col1, col2 = st.columns([6, 3])
     with col1:
-        st.write(""":green[**Resting blood pressure**] impacts cardiovascular disease (CVD) risk differently between genders. 
-                 Men typically develop hypertension and CVD earlier, often facing severe coronary artery disease and sudden cardiac events. 
-                 In contrast, women’s risk increases post-menopause due to declining estrogen levels, leading to non-obstructive coronary artery disease and atypical symptoms. 
-                 These differences are illustrated in the :orange[*scatter plots*] below, which show the relationship between age, resting blood pressure, and gender by selecting three different variables.
-        """)
+       st.write("""
+       :green[**Resting blood pressure**] impacts cardiovascular disease (CVD) risk differently between genders. 
+       Men typically develop hypertension and CVD earlier, often facing severe coronary artery disease and sudden cardiac events. 
+       In contrast, women’s risk increases post-menopause due to declining estrogen levels, leading to non-obstructive coronary artery disease and atypical symptoms. 
+       These differences are illustrated in the :orange[*scatter plots*] below, which show the relationship between age, resting blood pressure, and gender by selecting three different variables.
+       """)
     with col2:
         age_type = st.radio("Choose a gender you want to look at 👀", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
         rank = st.selectbox("Select the value you want to display on the chart 🟢 🔴", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
@@ -119,34 +120,35 @@ with tab1:
 with tab2:
     # Simplify data retrieval function
     def get_category_data(heartdisease, category):
-        filtered_data = HEART_DATASETS[HEART_DATASETS['HeartDisease'] == heartdisease]
-        grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
-        return filtered_data, grouped_data
+         filtered_data = HEART_DATASETS[HEART_DATASETS['HeartDisease'] == heartdisease]
+         grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
+         return filtered_data, grouped_data
 
     # Initialize widgets more efficiently
     if "disabled" not in st.session_state:
-       st.session_state['disabled'] = False
+         st.session_state['disabled'] = False
 
     # Dividing column for diverse data
     col1, col2 = st.columns([6, 3])
     with col1:
-        st.write("""
-        :green[**Resting blood pressure**] impacts cardiovascular disease (CVD) risk differently between genders. 
-        Men typically develop hypertension and CVD earlier, often facing severe coronary artery disease and sudden cardiac events. 
-        In contrast, women’s risk increases post-menopause due to declining estrogen levels, leading to non-obstructive coronary artery disease and atypical symptoms. 
-        These differences are illustrated in the :orange[*scatter plots*] below, which show the relationship between age, resting blood pressure, and gender by selecting three different variables.
-        """)
+         st.write("""
+         :green[**Resting blood pressure**] impacts cardiovascular disease (CVD) risk differently between genders. 
+         Men typically develop hypertension and CVD earlier, often facing severe coronary artery disease and sudden cardiac events. 
+         In contrast, women’s risk increases post-menopause due to declining estrogen levels, leading to non-obstructive coronary artery disease and atypical symptoms. 
+         These differences are illustrated in the :orange[*scatter plots*] below, which show the relationship between age, resting blood pressure, and gender by selecting three different variables.
+         """)
     with col2:
-        heartdisease_type = st.radio("Choose a type of heart disease you want to look at 👀", ["HeartDisease", "Normal"], key="cate", disabled=st.session_state.disabled)
-        var = st.selectbox("Select the value you want to display on the chart", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var', disabled=st.session_state.disabled)
-        colors2 = ["#6FED84", "#F57893","#6F89ED"]
-        filtered_data, category_data = get_category_data(heartdisease_type, var)
+         heartdisease_type = st.radio("Choose a type of heart disease you want to look at 👀", ["HeartDisease", "Normal"], key="cate", disabled=st.session_state.disabled)
+         var = st.selectbox("Select the value you want to display on the chart", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var', disabled=st.session_state.disabled)
+         colors2 = ["#6FED84", "#F57893","#6F89ED"]
+         filtered_data, category_data = get_category_data(heartdisease_type, var)
 
     # Plotting chart
     fig2 = px.box(filtered_data, x="RestingECG", y="MaxHR", color=var, points="outliers", 
                   title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",
                   labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", var: var}, 
-                  template="plotly_dark", color_discrete_map={value: color for value, color in zip(filtered_data[var].unique(), colors2)})
+                  template="plotly_dark", 
+                  color_discrete_map={value: color for value, color in zip(filtered_data[var].unique(), colors2)})
 
     # Display chart
     st.plotly_chart(fig2)
