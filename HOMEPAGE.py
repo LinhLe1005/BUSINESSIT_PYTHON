@@ -43,7 +43,7 @@ with st.container():
   
   st.subheader(":violet[👨🏻‍💻 Author of the datasets]")
   st.write("""
-  :orange[**FEDESORIANO - Data Scientist at Kaggle - Madrid, Community of Madrid, Spain**]
+  :orange[**👉🏻FEDESORIANO - Data Scientist at Kaggle - Madrid, Community of Madrid, Spain👈🏻**]
   """)
   st.write("""
   *Creators Acknowledgments:*
