@@ -83,10 +83,12 @@ with tab1:
         st.session_state['disabled'] = False
 
     # Dividing column for diverse data
-    col1, col2 = st.columns([3, 4])
+    col1, col2 = st.columns([5, 3])
     with col1:
-        age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
+        st.write("""Resting blood pressure impacts cardiovascular disease (CVD) risk differently between genders. Men typically develop hypertension and CVD earlier, facing severe coronary artery disease and sudden cardiac events. Women’s risk increases post-menopause due to declining estrogen, leading to non-obstructive coronary artery disease and atypical symptoms. Gender-specific factors, such as pregnancy-related conditions in women and higher smoking rates in men, influence hypertension and CVD risk. Treatment responses also vary, requiring tailored approaches for effective management. Understanding these differences is crucial for preventing and treating CVD in both men and women.
+        """)
     with col2:
+        age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
         rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
         colors1 = ["#F57893", "#6FED84"]
     filtered_data, category_data = get_category_data(age_type, rank)
