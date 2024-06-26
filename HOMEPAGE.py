@@ -10,7 +10,8 @@ with st.container():
   st.subheader("Group 10 - Thursday Morning")
   st.title(":blue[PYTHON 2 - BUSINESS IT 2 🧐]")
   st.write("""
-  💁🏻 Since all group members are interested in what causes the most deaths globally, and this dataset appears with various numbers with its reasons,  we want to find out the data have an Intuitive view through different types of charts. In the process of finding a data set for the project, we were impressed by the information *:green[“taking an estimated 17.9 million lives each year,  which accounts for 31% of all deaths worldwide”]*, which was a huge statistic. 
+  💁🏻 Since all group members are interested in what causes the most deaths globally, and this dataset appears with various numbers with its reasons,  we want to find out the data have an Intuitive view through different types of charts. 
+  In the process of finding a data set for the project, we were impressed by the information *:green[“taking an estimated 17.9 million lives each year,  which accounts for 31% of all deaths worldwide”]*, which was a huge statistic. 
   """)
 
 st.divider()
@@ -35,10 +36,12 @@ with st.container():
 # INFORMATION ABOUT THE DATASET  
   st.subheader(":violet[✴️ Reasons for selecting the datasets]")
   st.write("""
-  The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases (CVDs). Heart failure is a common event caused by CVDs and this dataset contains 11 features that can be used to predict a possible heart disease, which are categorical variables and real variables.
+  The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases (CVDs). 
+  Heart failure is a common event caused by CVDs and this dataset contains 11 features that can be used to predict a possible heart disease, which are categorical variables and real variables.
   """)
   st.write("""
-  People with cardiovascular disease or who are at high cardiovascular risk (due to the presence of one or more risk factors such as hypertension, diabetes, hyperlipidemia, or already established disease) need early detection and management wherein a machine learning model can be of great help. And we believe that with its diversity of information, we can analyze these data into intuitive charts.
+  People with cardiovascular disease or who are at high cardiovascular risk (due to the presence of one or more risk factors such as hypertension, diabetes, hyperlipidemia, or already established disease) need early detection and management wherein a machine learning model can be of great help. 
+  And we believe that with its diversity of information, we can analyze these data into intuitive charts.
   """)
   
   st.subheader(":violet[👨🏻‍💻 Author of the datasets]")
@@ -93,7 +96,10 @@ with tab1:
     # Dividing column for diverse data
     col1, col2 = st.columns([6, 3])
     with col1:
-        st.write(""":green[**Resting blood pressure**] impacts cardiovascular disease (CVD) risk differently between genders. Men typically develop hypertension and CVD earlier, often facing severe coronary artery disease and sudden cardiac events. In contrast, women’s risk increases post-menopause due to declining estrogen levels, leading to non-obstructive coronary artery disease and atypical symptoms. These differences are illustrated in the :orange[*scatter plots*] below, which show the relationship between age, resting blood pressure, and gender by selecting three different variables.
+        st.write(""":green[**Resting blood pressure**] impacts cardiovascular disease (CVD) risk differently between genders. 
+                 Men typically develop hypertension and CVD earlier, often facing severe coronary artery disease and sudden cardiac events. 
+                 In contrast, women’s risk increases post-menopause due to declining estrogen levels, leading to non-obstructive coronary artery disease and atypical symptoms. 
+                 These differences are illustrated in the :orange[*scatter plots*] below, which show the relationship between age, resting blood pressure, and gender by selecting three different variables.
         """)
     with col2:
         age_type = st.radio("Choose a gender you want to look at 👀", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
@@ -112,7 +118,7 @@ with tab1:
 ### TAB 2: RESTING ELECTROCARDIOGRAM RESULT
 with tab2:
     # Simplify data retrieval function
-    def get_category_data(gender, category):
+    def get_category_data(heartdisease, category):
         filtered_data = HEART_DATASETS[HEART_DATASETS['HeartDisease'] == heartdisease]
         grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
         return filtered_data, grouped_data
