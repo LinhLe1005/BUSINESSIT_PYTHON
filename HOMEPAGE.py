@@ -192,8 +192,8 @@ with tab3:
          age_counts.columns = ['Age', 'Count']
     
          # Create area chart
-         fig = px.area(age_counts, x='Age', y='Count', title=f"Chest Pain Type: {full_name} by Age Distribution",
-                       labels={'Age': 'Age', 'Count': 'Count'}, template="plotly_dark")
+         fig3 = px.area(age_counts, x='Age', y='Count', title=f"Chest Pain Type: {full_name} by Age Distribution",
+                        labels={'Age': 'Age', 'Count': 'Count'}, template="plotly_dark")
     
          # Display chart
-         st.plotly_chart(fig)
+         st.plotly_chart(fig3)
