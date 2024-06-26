@@ -90,19 +90,29 @@ with tab1:
 ### TAB 2: RESTING ELECTROCARDIOGRAM RESULT
 
 with tab2:
-    #def get_category_data(category):
-     #   filtered_data = HEART_DATASETS[HEART_DATASETS['Sex'] == gender]
-      #  grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
-       # return filtered_data, grouped_data
+    # Simplify data retrieval function
+    def get_category_data(category, gender=None):
+      if gender:
+        filtered_data = HEART_DATASETS[HEART_DATASETS['Sex'] == gender]
+      else:
+        filtered_data = HEART_DATASETS
+      grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
+      return filtered_data, grouped_data
+      
+    # Initialize widgets more efficiently
     if "disabled" not in st.session_state:
         st.session_state['disabled'] = False
 
-    col1, col2 = st.columns([3, 4])
-    with col2:
-      var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var')
-      colors2 = ["#6FED84", "#F57893","#6F89ED"]
-     # filtered_data = get_category_data(var)
-      fig2 = px.box(HEART_DATASETS, x=var, y="MaxHR", color=var, points="outliers",title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",
-                    labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", rank: var},template="plotly_dark")
-      
-      st.plotly_chart(fig2)
+    # Dividing column for diverse data
+    var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var', disabled=st.session_state.disabled)
+    colors2 = ["#6FED84", "#F57893","#6F89ED"]
+    filtered_data, category_data = get_category_data(var)  
+
+
+    # Plotting chart
+    fig2 = px.box(filtered_data, x="RestingECG", y="MaxHR", color=var, points="outliers", title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",
+                  labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", var: var}, template="plotly_dark", 
+                  color_discrete_map={value: color for value, color in zip(filtered_data[var].unique(), colors2)})
+
+    # Display chart
+    st.plotly_chart(fig2)
