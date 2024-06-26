@@ -95,7 +95,7 @@ with tab1:
         st.session_state['disabled'] = False
 
     # Dividing column for diverse data
-    col1, col2 = st.columns([6, 3])
+    col1, col2 = st.columns([77, 3])
     with col1:
        st.write("""
        :green[**Resting blood pressure**] impacts cardiovascular disease (CVD) risk differently between genders. 
@@ -130,7 +130,7 @@ with tab2:
          st.session_state['disabled'] = False
 
     # Dividing column for diverse data
-    col1, col2 = st.columns([7, 4])
+    col1, col2 = st.columns([8, 2])
     with col1:
          st.write("""
          :green[**Resting Electrocardiogram (ECG) results**] distinguish cardiovascular disease (CVD) from normal heart function. 
@@ -177,7 +177,7 @@ with tab3:
     colors3 = ["#EDCC6F", "#F57893", "#6FED84", "#6F89ED"]
 
     # Dividing column for diverse data
-    col1, col2 = st.columns([7, 4])
+    col1, col2 = st.columns([8, 22])
     with col1:
          st.write("""
          Different :green[**chest pain types**]—like *"Typical Angina" (TA), "Atypical Angina" (ATA), "Non-Anginal Pain" (NAP), and "Asymptomatic" (ASY)*—provide distinct clues about cardiovascular disease (CVD). 
