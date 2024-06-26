@@ -67,6 +67,7 @@ with st.container():
         \n - :green[**RestingBP:**] Resting blood pressure [mm Hg]
         \n - :green[**Cholesterol:**] Serum cholesterol [mm/dl]
         \n - :green[**FastingBS:**] Fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: Otherwise]
+        \n - :green[**RestingECG:**] Resting electrocardiogram results [Normal: Normal, ST: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV), LVH: showing probable or definite left ventricular hypertrophy by Estes' criteria]
         \n - :green[**MaxHR:**] Maximum heart rate achieved [Numeric value between 60 and 202]
         \n - :green[**ExerciseAngina:**] Exercise-induced angina [Y: Yes, N: No] 
         \n - :green[**ST_Slope:**] The slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
