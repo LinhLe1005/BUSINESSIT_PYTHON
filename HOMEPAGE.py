@@ -129,7 +129,7 @@ with tab2:
          st.session_state['disabled'] = False
 
     # Dividing column for diverse data
-    col1, col2 = st.columns([6, 3])
+    col1, col2 = st.columns([7, 4])
     with col1:
          st.write("""
          :green[**Resting Electrocardiogram (ECG) results**] differentiate cardiovascular disease (CVD) from normal heart function. 
@@ -146,7 +146,7 @@ with tab2:
 
     # Plotting chart
     fig2 = px.box(filtered_data, x="RestingECG", y="MaxHR", color=var, points="outliers", 
-                  title=f"Comparison of Maximum Heart Rate by Resting ECG with {var} ({cate} People)",
+                  title=f"Comparison of Maximum Heart Rate by Resting ECG with {var} ({heartdisease_type} People)",
                   labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Maximum Heart Rate Achieved", var: var}, 
                   template="plotly_dark", 
                   color_discrete_map={value: color for value, color in zip(filtered_data[var].unique(), colors2)})
