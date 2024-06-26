@@ -129,6 +129,7 @@ with tab2:
     st.plotly_chart(fig2)
 
 ### TAB 3: CHEST PAIN TYPE
+# Chest pain types for demonstration purposes
 chest_pain_types = {
     "TA": "Typical Angina",
     "ATA": "Atypical Angina",
@@ -144,7 +145,7 @@ if "disabled" not in st.session_state:
 colors = ["#EDCC6F", "#6F89ED", "#F57893", "#008170"]
 
 # Create a new tab
-tab3 = st.tab("Tab 3")
+tab3 = st.tabs(["Tab 3"])[0]
 
 with tab3:
     # Plotting chart for each chest pain type
