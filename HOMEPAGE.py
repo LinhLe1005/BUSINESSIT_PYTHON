@@ -154,22 +154,33 @@ with tab2:
     st.plotly_chart(fig2)
 
 ### TAB 3: CHEST PAIN TYPE
-# Chest pain types for demonstration purposes
-chest_pain_types = {
-    "TA": "Typical Angina",
-    "ATA": "Atypical Angina",
-    "NAP": "Non-Anginal Pain",
-    "ASY": "Asymptomatic"
-}
-
-# Initialize widgets more efficiently
-if "disabled" not in st.session_state:
-    st.session_state['disabled'] = False
-
-# Define color scheme
-colors = ["#EDCC6F", "#6F89ED", "#F57893", "#008170"]
-
 with tab3:
+    # Chest pain types for demonstration purposes
+    chest_pain_types = {
+         "TA": "Typical Angina",
+         "ATA": "Atypical Angina",
+         "NAP": "Non-Anginal Pain",
+         "ASY": "Asymptomatic"
+    }
+
+    # Initialize widgets more efficiently
+    if "disabled" not in st.session_state:
+         st.session_state['disabled'] = False
+
+    # Dividing column for diverse data
+    col1, col2 = st.columns([7, 4])
+    with col1:
+         st.write("""
+         :green[**Resting Electrocardiogram (ECG) results**] distinguish cardiovascular disease (CVD) from normal heart function. 
+         Patients with CVD often show abnormal patterns like ST-segment changes, T-wave inversions, and abnormal Q waves, indicating myocardial issues and arrhythmias. 
+         Healthy individuals typically have regular sinus rhythm and normal ECG parameters. ECG is crucial for diagnosing cardiac abnormalities in CVD patients and confirming normal heart function in others. 
+         These differences are visualized in :orange[*boxplot charts*] below, showing the relationship between *maximum heart rate, resting ECG results, and heart disease presence* across three variables.
+         """)
+    with col2:
+         num = st.selectbox("Choose the data point you wish to visualize on the chart 📈", ("Typical Angina", "Atypical Angina", "Non-Anginal Pain", "Asymptomatic"), key='num', disabled=st.session_state.disabled)
+         colors3 = ["#EDCC6F", "#F57893", "#6FED84", "#6F89ED"]
+         filtered_data, category_data = get_category_data(num)
+
     # Plotting chart for each chest pain type
     for area, (code, full_name) in enumerate(chest_pain_types.items()):
         data = HEART_DATASETS[HEART_DATASETS['ChestPainType'] == code]
