@@ -61,11 +61,11 @@ with st.container():
         \n - :green[**ChestPainType:**] Chest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]
         \n - :green[**RestingBP:**] Resting blood pressure [mm Hg]
         \n - :green[**Cholesterol:**] Serum cholesterol [mm/dl]
-        \n - :green[**FastingBS:**] Fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]
+        \n - :green[**FastingBS:**] Fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: Otherwise]
         \n - :green[**MaxHR:**] Maximum heart rate achieved [Numeric value between 60 and 202]
         \n - :green[**ExerciseAngina:**] Exercise-induced angina [Y: Yes, N: No] 
         \n - :green[**ST_Slope:**] The slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
-        \n - :green[**HeartDisease:**] Output class [1: heart disease, 0: Normal]
+        \n - :green[**HeartDisease:**] Output class [1: Heart Disease, 0: Normal]
         """)
 
 st.divider()
@@ -93,11 +93,11 @@ with tab1:
     # Dividing column for diverse data
     col1, col2 = st.columns([6, 3])
     with col1:
-        st.write("""Resting blood pressure impacts cardiovascular diseases risk differently between genders. Men typically develop hypertension and CVD earlier, facing severe coronary artery disease and sudden cardiac events. Women’s risk increases post-menopause due to declining estrogen, leading to non-obstructive coronary artery disease and atypical symptoms. These graphs are shown by scatter plots, illustrating specified genders based on age and resting blood pressure by choosing three different variables.
+        st.write(""":green[**Resting blood pressure**] impacts cardiovascular disease risk differently between genders. Men typically develop hypertension and CVD earlier, facing severe coronary artery disease and sudden cardiac events. Women’s risk increases post-menopause due to declining estrogen, leading to non-obstructive coronary artery disease and atypical symptoms. These graphs are shown by :orange[*scatter plots*], illustrating specified genders based on age and resting blood pressure by choosing three different variables.
         """)
     with col2:
-        age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
-        rank = st.selectbox("Categories", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
+        age_type = st.radio("Choose a gender you want to look at 👀", ["🙋🏼‍♂️ Male", "🙋🏼‍♀️ Female"], key="visibility", disabled=st.session_state.disabled)
+        rank = st.selectbox("Select the value you want to display on the chart 🟢 🔴", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
         colors1 = ["#F57893", "#6FED84"]
     filtered_data, category_data = get_category_data(age_type, rank)
 
