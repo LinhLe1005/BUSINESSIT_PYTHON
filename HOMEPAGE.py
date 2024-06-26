@@ -172,6 +172,9 @@ with tab3:
     if "disabled" not in st.session_state:
         st.session_state['disabled'] = False
 
+    # Define colors for each chest pain type
+    colors3 = ["#EDCC6F", "#F57893", "#6FED84", "#6F89ED"]
+
     # Dividing column for diverse data
     col1, col2 = st.columns([7, 4])
     with col1:
@@ -183,7 +186,6 @@ with tab3:
          """)
     with col2:
          num = st.selectbox("Choose the data point you wish to visualize on the chart 📈", list(chest_pain_types.values()), key='num', disabled=st.session_state.disabled)
-         colors3 = ["#EDCC6F", "#F57893", "#6FED84", "#6F89ED"]
          filtered_data = get_category_data(next(key for key, value in chest_pain_types.items() if value == num))
 
     # Plotting chart for the selected chest pain type
@@ -191,10 +193,13 @@ with tab3:
     age_counts = data['Age'].value_counts().sort_index().reset_index()
     age_counts.columns = ['Age', 'Count']
 
+    # Determine color based on chest pain type
+    color_index = list(chest_pain_types.keys()).index(next(key for key, value in chest_pain_types.items() if value == num))
+    color = colors[color_index % len(colors3)]
+
     # Create area chart
     fig3 = px.area(age_counts, x='Age', y='Count', title=f"Chest Pain Type: {num} by Age Distribution",
-                   labels={'Age': 'Age', 'Count': 'Count'}, template="plotly_dark",
-                   color_discrete_map={value: color for value, color in zip(filtered_data[var].unique(), colors3)})
+                   labels={'Age': 'Age', 'Count': 'Count'}, template="plotly_dark", color_discrete_sequence=[color])
 
     # Display chart
     st.plotly_chart(fig3)
