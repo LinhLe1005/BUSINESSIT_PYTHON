@@ -100,7 +100,7 @@ with tab1:
        :green[**Resting blood pressure**] impacts cardiovascular disease (CVD) risk differently between genders. 
        Men typically develop hypertension and CVD earlier, often facing severe coronary artery disease and sudden cardiac events. 
        In contrast, women’s risk increases post-menopause due to declining estrogen levels, leading to non-obstructive coronary artery disease and atypical symptoms. 
-       These differences are illustrated in the :orange[*scatter plots*] below, which show the relationship between age, resting blood pressure, and gender by selecting three different variables.
+       These differences are illustrated in the :orange[*scatter plots*] below, which show the relationship between *age, resting blood pressure, and gender* by selecting three different variables.
        """)
     with col2:
         age_type = st.radio("Choose a gender you want to look at 👀", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
@@ -136,7 +136,7 @@ with tab2:
          Patients with CVD often exhibit abnormal patterns like ST-segment changes, T-wave inversions, and abnormal Q waves, indicating myocardial issues and arrhythmias such as atrial fibrillation. 
          In contrast, healthy individuals typically display regular sinus rhythm and normal ECG parameters. 
          ECG serves as a critical diagnostic tool, identifying cardiac abnormalities in CVD patients and confirming normal heart function in others. 
-         These distinctions are illustrated in the :orange[*boxplot charts*] below, depicting the relationship between achieved maximum heart rate, resting ECG results, and the presence of heart disease across three different variables.
+         These distinctions are illustrated in the :orange[*boxplot charts*] below, depicting the relationship between *achieved maximum heart rate, resting ECG results, and the presence of heart disease* across three different variables.
          """)
     with col2:
          heartdisease_type = st.radio("💁🏽‍♀️ You're interested in examining the data for", ["HeartDisease", "Normal"], key="cate", disabled=st.session_state.disabled)
