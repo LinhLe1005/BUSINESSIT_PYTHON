@@ -130,6 +130,7 @@ with tab2:
 
 ### TAB 3: CHEST PAIN TYPE
 # Chest pain types for demonstration purposes
+# Chest pain types for demonstration purposes
 chest_pain_types = {
     "TA": "Typical Angina",
     "ATA": "Atypical Angina",
@@ -144,18 +145,16 @@ if "disabled" not in st.session_state:
 # Define color scheme
 colors = ["#EDCC6F", "#6F89ED", "#F57893", "#008170"]
 
-# Create a new tab
-tab3 = st.tabs(["Tab 3"])[0]
-
 with tab3:
     # Plotting chart for each chest pain type
     for area, (code, full_name) in enumerate(chest_pain_types.items()):
         data = HEART_DATASETS[HEART_DATASETS['ChestPainType'] == code]
-        age_counts = data['Age'].value_counts().sort_index()
+        age_counts = data['Age'].value_counts().sort_index().reset_index()
+        age_counts.columns = ['Age', 'Count']
         
         # Create area chart
-        fig3 = px.area(age_counts.reset_index(), x='index', y='Age', title=f"Chest Pain Type: {full_name} by Age Distribution",
-                       labels={'index': 'Age', 'Age': 'Count'}, template="plotly_dark", 
+        fig3 = px.area(age_counts, x='Age', y='Count', title=f"Chest Pain Type: {full_name} by Age Distribution",
+                       labels={'Age': 'Age', 'Count': 'Count'}, template="plotly_dark", 
                        color_discrete_sequence=[colors[area % len(colors)]])
         
         # Display chart
