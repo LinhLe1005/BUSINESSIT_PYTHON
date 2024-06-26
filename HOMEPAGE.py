@@ -127,3 +127,38 @@ with tab2:
 
     # Display chart
     st.plotly_chart(fig2)
+
+### TAB 3: CHEST PAIN TYPE
+with tab3:
+   chest_pain_types = {
+      "TA": "Typical Angina",
+      "ATA": "Atypical Angina",
+      "NAP": "Non-Anginal Pain",
+      "ASY": "Asymptomatic"
+   }
+
+   # Simplify data retrieval function
+   def get_category_data(category, gender=None):
+      if gender:
+        filtered_data = HEART_DATASETS[HEART_DATASETS['Sex'] == gender]
+      else:
+        filtered_data = HEART_DATASETS
+      grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
+      return filtered_data, grouped_data
+
+   # Initialize widgets more efficiently
+   if "disabled" not in st.session_state:
+      st.session_state['disabled'] = False
+
+    # Plotting chart
+    colors = ["#EDCC6F", "#6F89ED", "#F57893", "#008170"]  # Customize colors as needed
+    for area, (code, full_name) in enumerate(chest_pain_types.items()):
+        data = HEART_DATASETS[HEART_DATASETS['ChestPainType'] == code]
+        age_counts = data['Age'].value_counts().sort_index()
+        fig3 = px.area(data, x="Age", title=f"Chest Pain Type: {full_name} by Age Distribution",
+                       labels={"Age": "Age", "value": "Count"},
+                       template="plotly_dark", 
+                       color_discrete_sequence=[colors[area % len(colors)]])
+        
+        # Display chart
+        st.plotly_chart(fig3)
