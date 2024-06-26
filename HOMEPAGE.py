@@ -10,37 +10,37 @@ with st.container():
   st.subheader("Group 10 - Thursday Morning")
   st.title(":blue[PYTHON 2 - BUSINESS IT 2 🧐]")
   st.write("""
-  💁🏻 Since all members of our group are interested in what causes the most deaths globally, and this dataset appears with various numbers with its reasons,  we want to find out the data have an Intuitive view through different types of charts. In the process of finding a data set for the R Studio project, we were impressed by the information *:green[“taking an estimated 17.9 million lives each year,  which accounts for 31% of all deaths worldwide”]*, which was a huge statistic.  This data set is not only in the field we enjoy but also has a standard structure we need for the project.
+  💁🏻 Since all group members are interested in what causes the most deaths globally, and this dataset appears with various numbers with its reasons,  we want to find out the data have an Intuitive view through different types of charts. In the process of finding a data set for the project, we were impressed by the information *:green[“taking an estimated 17.9 million lives each year,  which accounts for 31% of all deaths worldwide”]*, which was a huge statistic. 
   """)
 
 st.divider()
 
 
 # SETTING SIDEBAR
-st.sidebar.write('**🧑🏻‍🏫 :orange[Instructor: Dr. Tan Duc Do]**')
-st.sidebar.write('**ℹ️ :orange[Group Members:]**')
 with st.sidebar:
-    st.write('Le Phuong Linh - 10323049')
-    st.write('Nguyen Minh Tri - 10623045')
-    st.write('Nguyen Nhu Ngoc - 10323019')
-    st.write('Pham Dinh Khanh Ngoc - 10623033')
+    st.write('**🧑🏻‍🏫 :orange[Instructor: Dr. Tan Duc Do]**')
+    st.write('**ℹ️ :orange[Group Members:]**')
+    st.write('*Le Phuong Linh - 10323049*')
+    st.write('*Nguyen Minh Tri - 10623045*')
+    st.write('*Nguyen Nhu Ngoc - 10323019*')
+    st.write('*Pham Dinh Khanh Ngoc - 10623033*')
 
 
 # SETTING DATASETS
 with st.container():
-  st.header("Information about Cardiovascular Disease 🫀")
+  st.header(":blue[Information about Cardiovascular Disease 🫀]")
   st.write("Here's a preview of the dataset we are working with:")
   st.write(HEART_DATASETS)
   st.write("##")
   
 # INFORMATION ABOUT THE DATASET  
-  st.subheader("✴️ REASONS CHOSE THE DATASETS")
+  st.subheader(":violet[✴️ REASONS CHOSE THE DATASETS]")
   st.write("""
   The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases. Also, it has many variables, such as categorical variables and real variables. And we believe that with its diversity of information, we can analyze these data into intuitive charts.
   """)
-  st.write("##")
+  st.write("#")
   
-  st.subheader("👨🏻‍💻 AUTHOR OF THE DATASETS")
+  st.subheader(":violet[👨🏻‍💻 AUTHOR OF THE DATASETS]")
   st.write("""
   FEDESORIANO - Data Scientist at Kaggle - Madrid, Community of Madrid, Spain
   """)
