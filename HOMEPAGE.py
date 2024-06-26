@@ -52,7 +52,7 @@ with st.container():
   st.write("""
   *Creators Acknowledgments:*
        \n - Hungarian Institute of Cardiology. Budapest: Andras Janosi, M.D.
-       \n - University Hospital, Zurich, Switzerland: William Steinbrunn,People'}, template="plotly_dark", color_discrete_sequence=[color])
+       \n - University Hospital, Zurich, Switzerland: William Steinbrunn,  M.D.
        \n - University Hospital, Zurich, Switzerland: William Steinbrunn, M.D.
        \n - University Hospital, Basel, Switzerland: Matthias Pfisterer, M.D.
        \n - V.A. Medical Center, Long Beach and Cleveland Clinic Foundation: Robert Detrano, M.D., Ph.D.
@@ -78,7 +78,7 @@ st.divider()
 
 # SETTING CHARTS
 st.header(":blue[Factors Affecting Individual's Health Problems ❤️‍🩹]")
-st.write("*Let's discover these graphs below*")
+st.write("*Let's discover these graphs below 👇🏼*")
 
 # Initial 3 tabs for each type of variables
 tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
