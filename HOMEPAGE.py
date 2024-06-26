@@ -185,15 +185,14 @@ with tab3:
          num = st.selectbox("Choose the data point you wish to visualize on the chart 📈", list(chest_pain_types.values()), key='num', disabled=st.session_state.disabled)
          filtered_data = get_category_data(next(key for key, value in chest_pain_types.items() if value == num))
 
-    # Plotting chart for each chest pain type
-    for code, full_name in chest_pain_types.items():
-         data = filtered_data[filtered_data['ChestPainType'] == code]
-         age_counts = data['Age'].value_counts().sort_index().reset_index()
-         age_counts.columns = ['Age', 'Count']
-    
-         # Create area chart
-         fig3 = px.area(age_counts, x='Age', y='Count', title=f"Chest Pain Type: {full_name} by Age Distribution",
-                        labels={'Age': 'Age', 'Count': 'Count'}, template="plotly_dark")
-    
-         # Display chart
-         st.plotly_chart(fig3)
+    # Plotting chart for the selected chest pain type
+    data = filtered_data[filtered_data['ChestPainType'] == next(key for key, value in chest_pain_types.items() if value == num)]
+    age_counts = data['Age'].value_counts().sort_index().reset_index()
+    age_counts.columns = ['Age', 'Count']
+
+    # Create area chart
+    fig3 = px.area(age_counts, x='Age', y='Count', title=f"Chest Pain Type: {num} by Age Distribution",
+               labels={'Age': 'Age', 'Count': 'Count'}, template="plotly_dark")
+
+    # Display chart
+    st.plotly_chart(fig3)
