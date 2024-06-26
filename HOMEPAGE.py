@@ -102,7 +102,7 @@ with tab1:
     filtered_data, category_data = get_category_data(age_type, rank)
 
     # Plotting chart
-    fig1 = px.scatter(filtered_data, x='Age', y='RestingBP', color=rank, title=f"Age vs Resting Blood Pressure ({age_type})",
+    fig1 = px.scatter(filtered_data, x='Age', y='RestingBP', color=rank, title=f"Age and Resting Blood Pressure Distribution by {rank} ({age_type})",
                       labels={'Age': 'Age (years)', 'RestingBP': 'Resting Blood Pressure (mm Hg)', rank: rank}, 
                       color_discrete_map={value: color for value, color in zip(filtered_data[rank].unique(), colors1)})
 
