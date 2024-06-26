@@ -65,7 +65,7 @@ with st.container():
         \n - :green[**MaxHR:**] maximum heart rate achieved [Numeric value between 60 and 202]
         \n - :green[**ExerciseAngina:**] exercise-induced angina [Y: Yes, N: No] 
         \n - :green[**ST_Slope:**] the slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
-        \n - :green[HeartDisease:**] output class [1: heart disease, 0: Normal]
+        \n - :green[**HeartDisease:**] output class [1: heart disease, 0: Normal]
         """)
 
 st.divider()
