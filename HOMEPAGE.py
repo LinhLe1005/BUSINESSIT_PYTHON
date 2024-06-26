@@ -45,7 +45,8 @@ with st.container():
   st.write("""
   :orange[**FEDESORIANO - Data Scientist at Kaggle - Madrid, Community of Madrid, Spain**]
   """)
-  st.write("*Acknowledgments:*
+  st.write("
+  *Acknowledgments:*
   Creators:
        \n - Hungarian Institute of Cardiology. Budapest: Andras Janosi, M.D.
        \n - University Hospital, Zurich, Switzerland: William Steinbrunn, M.D.
