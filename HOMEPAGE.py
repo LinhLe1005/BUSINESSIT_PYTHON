@@ -7,8 +7,8 @@ HEART_DATASETS = pd.read_csv('HEART_DATASETS.csv')
 # SETTING TITLE PAGE
 st.set_page_config(page_icon="chart_with_upwards_trend", page_title="BUSINESS IT 2 - PYTHON PROJECT 2", layout="wide")
 with st.container():
-  st.subheader("Group 10 - Thursday Morning")
   st.subheader("PYTHON 2 - BUSINESS IT 2")
+  st.subheader("Group 10 - Thursday Morning")
   st.title(":blue[HEART FAILURE PREDICTION WEBSITES 🧐]")
   st.write("""
   💁🏻 Since all group members are interested in what causes the most deaths globally, and this dataset appears with various numbers with its reasons,  we want to find out the data have an Intuitive view through different types of charts. 
