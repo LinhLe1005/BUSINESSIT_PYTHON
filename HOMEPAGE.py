@@ -130,15 +130,15 @@ with tab2:
 
 ### TAB 3: CHEST PAIN TYPE
 with tab3:
-   chest_pain_types = {
+    chest_pain_types = {
       "TA": "Typical Angina",
       "ATA": "Atypical Angina",
       "NAP": "Non-Anginal Pain",
       "ASY": "Asymptomatic"
-   }
+    }
 
-   # Simplify data retrieval function
-   def get_category_data(category, gender=None):
+    # Simplify data retrieval function
+    def get_category_data(category, gender=None):
       if gender:
         filtered_data = HEART_DATASETS[HEART_DATASETS['Sex'] == gender]
       else:
@@ -146,8 +146,8 @@ with tab3:
       grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
       return filtered_data, grouped_data
 
-   # Initialize widgets more efficiently
-   if "disabled" not in st.session_state:
+    # Initialize widgets more efficiently
+    if "disabled" not in st.session_state:
       st.session_state['disabled'] = False
 
     # Plotting chart
