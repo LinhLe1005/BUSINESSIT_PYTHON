@@ -180,13 +180,14 @@ with tab3:
     col1, col2 = st.columns([7, 4])
     with col1:
          st.write("""
-         :green[**Resting Electrocardiogram (ECG) results**] distinguish cardiovascular disease (CVD) from normal heart function. 
-         Patients with CVD often show abnormal patterns like ST-segment changes, T-wave inversions, and abnormal Q waves, indicating myocardial issues and arrhythmias. 
-         Healthy individuals typically have regular sinus rhythm and normal ECG parameters. ECG is crucial for diagnosing cardiac abnormalities in CVD patients and confirming normal heart function in others. 
-         These differences are visualized in :orange[*boxplot charts*] below, showing the relationship between *maximum heart rate, resting ECG results, and heart disease presence* across three variables.
+         Different :green[**chest pain types**]—like *"Typical Angina" (TA), "Atypical Angina" (ATA), "Non-Anginal Pain" (NAP), and "Asymptomatic" (ASY)*—provide distinct clues about cardiovascular disease (CVD). 
+         TA indicates significant coronary artery disease with exertion-related discomfort, while ATA suggests CVD less predictably. NAP originates from sources other than coronary arteries, indicating lower CVD risk. 
+         ASY individuals show no chest pain but may have underlying cardiovascular issues. 
+         Understanding these types aids in diagnosing CVD, guiding treatments, and managing heart-related risks effectively. 
+         These distinctions are shown in the :orange[*area charts*] below, illustrating the relationship between *chest pain types, age, and the number of affected individuals*.
          """)
     with col2:
-         num = st.selectbox("Choose the data point you wish to visualize on the chart 📈", list(chest_pain_types.values()), key='num', disabled=st.session_state.disabled)
+         num = st.selectbox("Which specific chest pain categories are you interested in exploring? 🔍", list(chest_pain_types.values()), key='num', disabled=st.session_state.disabled)
          filtered_data = get_category_data(next(key for key, value in chest_pain_types.items() if value == num))
 
     # Plotting chart for the selected chest pain type
@@ -200,7 +201,7 @@ with tab3:
 
     # Create area chart
     fig3 = px.area(age_counts, x='Age', y='Count', title=f"Chest Pain Type: {num} by Age Distribution",
-                   labels={'Age': 'Age', 'Count': 'Count'}, template="plotly_dark", color_discrete_sequence=[color])
+                   labels={'Age': 'Age', 'Count': 'Number of People'}, template="plotly_dark", color_discrete_sequence=[color])
 
     # Display chart
     st.plotly_chart(fig3)
