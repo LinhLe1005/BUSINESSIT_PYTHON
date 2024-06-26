@@ -28,7 +28,7 @@ with st.sidebar:
 
 # SETTING DATASETS
 with st.container():
-  st.header(":blue[Information about CARDIOVASCULAR DISEASE 🫀]")
+  st.header(":blue[Information about CARDIOVASCULAR DISEASE (CVDs) 🫀]")
   st.write("Here's a preview of the dataset we are working with:")
   st.write(HEART_DATASETS)
   
@@ -46,8 +46,7 @@ with st.container():
   :orange[**FEDESORIANO - Data Scientist at Kaggle - Madrid, Community of Madrid, Spain**]
   """)
   st.write("""
-  *Acknowledgments:*
-  Creators:
+  *Creators Acknowledgments:*
        \n - Hungarian Institute of Cardiology. Budapest: Andras Janosi, M.D.
        \n - University Hospital, Zurich, Switzerland: William Steinbrunn, M.D.
        \n - University Hospital, Basel, Switzerland: Matthias Pfisterer, M.D.
@@ -73,7 +72,7 @@ st.divider()
 
 
 # SETTING CHARTS
-st.header("Factors Affecting Individual's Health Problems")
+st.header(":blue[Factors Affecting Individual's Health Problems]")
 st.write("Let's discover these graphs below")
 
 # Initial 3 tabs for each type of variables
@@ -94,7 +93,7 @@ with tab1:
     # Dividing column for diverse data
     col1, col2 = st.columns([6, 3])
     with col1:
-        st.write("""Resting blood pressure impacts cardiovascular disease (CVD) risk differently between genders. Men typically develop hypertension and CVD earlier, facing severe coronary artery disease and sudden cardiac events. Women’s risk increases post-menopause due to declining estrogen, leading to non-obstructive coronary artery disease and atypical symptoms. These graphs are shown by scatter plots, illustrating specified genders based on age and resting blood pressure by choosing three different variables.
+        st.write("""Resting blood pressure impacts cardiovascular diseases risk differently between genders. Men typically develop hypertension and CVD earlier, facing severe coronary artery disease and sudden cardiac events. Women’s risk increases post-menopause due to declining estrogen, leading to non-obstructive coronary artery disease and atypical symptoms. These graphs are shown by scatter plots, illustrating specified genders based on age and resting blood pressure by choosing three different variables.
         """)
     with col2:
         age_type = st.radio("Choose a gender you want to look at 👇", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
