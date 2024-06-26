@@ -130,6 +130,7 @@ with tab2:
 
 ### TAB 3: CHEST PAIN TYPE
 with tab3:
+    # Simplify data retrieval function
     chest_pain_types = {
       "TA": "Typical Angina",
       "ATA": "Atypical Angina",
@@ -137,7 +138,6 @@ with tab3:
       "ASY": "Asymptomatic"
     }
 
-    # Simplify data retrieval function
     def get_category_data(category, gender=None):
       if gender:
         filtered_data = HEART_DATASETS[HEART_DATASETS['Sex'] == gender]
@@ -156,7 +156,7 @@ with tab3:
         data = HEART_DATASETS[HEART_DATASETS['ChestPainType'] == code]
         age_counts = data['Age'].value_counts().sort_index()
         fig3 = px.area(data, x="Age", title=f"Chest Pain Type: {full_name} by Age Distribution",
-                       labels={"Age": "Age", "value": "Count"},
+                       labels={"Age": "Age", "value": "Number of People"},
                        template="plotly_dark", 
                        color_discrete_sequence=[colors[area % len(colors)]])
         
