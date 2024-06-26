@@ -38,6 +38,9 @@ with st.container():
   st.write("""
   The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases. Also, it has many variables, such as categorical variables and real variables. And we believe that with its diversity of information, we can analyze these data into intuitive charts.
   """)
+  st.write(""""
+  We want to find out how these factors impact cardiovascular health, which includes chest pain types, achieved maximum heart rate, fasting blood sugar, gender, and age of people who suffer from CVDs. By analyzing the graphs of these factors, we can identify the cause of cardiovascular diseases and know how to treat our bodies better.
+  """)
   st.write("#")
   
   st.subheader(":violet[👨🏻‍💻 AUTHOR OF THE DATASETS]")
