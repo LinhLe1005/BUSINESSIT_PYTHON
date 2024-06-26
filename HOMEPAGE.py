@@ -9,8 +9,9 @@ st.set_page_config(page_icon="chart_with_upwards_trend", page_title="BUSINESS IT
 with st.container():
   st.subheader("Group 10")
   st.title(":blue[PYTHON 2 - BUSINESS IT 2 Thursday Morning 🧐]")
-  st.write("""💁🏻 Since all members of our group are interested in what causes the most deaths globally, and this dataset appears with various numbers with its reasons,  we want to find out the data have an Intuitive view through different types of charts. In the process of finding a data set for the R Studio project, we were impressed by the information “taking an estimated 17.9 million lives each year,  which accounts for 31% of all deaths worldwide”, which was a huge statistic.  This data set is not only in the field we enjoy but also has a standard structure we need for the project.
-""")
+  st.write("""
+  💁🏻 Since all members of our group are interested in what causes the most deaths globally, and this dataset appears with various numbers with its reasons,  we want to find out the data have an Intuitive view through different types of charts. In the process of finding a data set for the R Studio project, we were impressed by the information “taking an estimated 17.9 million lives each year,  which accounts for 31% of all deaths worldwide”, which was a huge statistic.  This data set is not only in the field we enjoy but also has a standard structure we need for the project.
+  """)
 
 st.divider()
 
@@ -95,16 +96,6 @@ with tab1:
     st.plotly_chart(fig1)
 
 ### TAB 2: RESTING ELECTROCARDIOGRAM RESULT
-with tab2:
-  # Function to get category data
-  def get_category_data(category, gender=None):
-    if gender:
-        filtered_data = HEART_DATASETS[HEART_DATASETS['Sex'] == gender]
-    else:
-        filtered_data = HEART_DATASETS
-    grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
-    return filtered_data, grouped_data
-
 with tab2:
     # Simplify data retrieval function
     def get_category_data(category, gender=None):
