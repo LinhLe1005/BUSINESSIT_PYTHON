@@ -129,35 +129,32 @@ with tab2:
     st.plotly_chart(fig2)
 
 ### TAB 3: CHEST PAIN TYPE
+chest_pain_types = {
+    "TA": "Typical Angina",
+    "ATA": "Atypical Angina",
+    "NAP": "Non-Anginal Pain",
+    "ASY": "Asymptomatic"
+}
+
+# Initialize widgets more efficiently
+if "disabled" not in st.session_state:
+    st.session_state['disabled'] = False
+
+# Define color scheme
+colors = ["#EDCC6F", "#6F89ED", "#F57893", "#008170"]
+
+# Create a new tab
+tab3 = st.tab("Tab 3")
+
 with tab3:
-    # Simplify data retrieval function
-    chest_pain_types = {
-      "TA": "Typical Angina",
-      "ATA": "Atypical Angina",
-      "NAP": "Non-Anginal Pain",
-      "ASY": "Asymptomatic"
-    }
-
-    def get_category_data(category, gender=None):
-      if gender:
-        filtered_data = HEART_DATASETS[HEART_DATASETS['Sex'] == gender]
-      else:
-        filtered_data = HEART_DATASETS
-      grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
-      return filtered_data, grouped_data
-
-    # Initialize widgets more efficiently
-    if "disabled" not in st.session_state:
-      st.session_state['disabled'] = False
-
-    # Plotting chart
-    colors = ["#EDCC6F", "#6F89ED", "#F57893", "#008170"]  # Customize colors as needed
+    # Plotting chart for each chest pain type
     for area, (code, full_name) in enumerate(chest_pain_types.items()):
         data = HEART_DATASETS[HEART_DATASETS['ChestPainType'] == code]
         age_counts = data['Age'].value_counts().sort_index()
-        fig3 = px.area(data, x="Age", title=f"Chest Pain Type: {full_name} by Age Distribution",
-                       labels={"Age": "Age", "value": "Number of People"},
-                       template="plotly_dark", 
+        
+        # Create area chart
+        fig3 = px.area(age_counts.reset_index(), x='index', y='Age', title=f"Chest Pain Type: {full_name} by Age Distribution",
+                       labels={'index': 'Age', 'Age': 'Count'}, template="plotly_dark", 
                        color_discrete_sequence=[colors[area % len(colors)]])
         
         # Display chart
