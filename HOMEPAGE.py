@@ -75,7 +75,7 @@ st.divider()
 
 
 # SETTING CHARTS
-st.header(":blue[Factors Affecting Individual's Health Problems]")
+st.header(":blue[Factors Affecting Individual's Health Problems ❤️‍🩹]")
 st.write("*Let's discover these graphs below*")
 
 # Initial 3 tabs for each type of variables
@@ -139,15 +139,15 @@ with tab2:
          These distinctions are illustrated in the :orange[*boxplot charts*] below, depicting the relationship between achieved maximum heart rate, resting ECG results, and the presence of heart disease across three different variables.
          """)
     with col2:
-         heartdisease_type = st.radio("Choose a type of heart disease you want to look at 👀", ["HeartDisease", "Normal"], key="cate", disabled=st.session_state.disabled)
-         var = st.selectbox("Select the value you want to display on the chart", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var', disabled=st.session_state.disabled)
+         heartdisease_type = st.radio("💁🏽‍♀️ You're interested in examining the data for", ["HeartDisease", "Normal"], key="cate", disabled=st.session_state.disabled)
+         var = st.selectbox("Choose the data point you wish to visualize on the chart 📈", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var', disabled=st.session_state.disabled)
          colors2 = ["#6FED84", "#F57893","#6F89ED"]
          filtered_data, category_data = get_category_data(heartdisease_type, var)
 
     # Plotting chart
     fig2 = px.box(filtered_data, x="RestingECG", y="MaxHR", color=var, points="outliers", 
-                  title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",
-                  labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", var: var}, 
+                  title=f"Comparison of Maximum Heart Rate by Resting ECG with {var} ({cate} People)",
+                  labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Maximum Heart Rate Achieved", var: var}, 
                   template="plotly_dark", 
                   color_discrete_map={value: color for value, color in zip(filtered_data[var].unique(), colors2)})
 
