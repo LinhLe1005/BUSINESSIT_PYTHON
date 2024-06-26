@@ -76,7 +76,7 @@ st.header(":blue[Factors Affecting Individual's Health Problems]")
 st.write("*Let's discover these graphs below*")
 
 # Initial 3 tabs for each type of variables
-tab1, tab2, tab3 = st.tabs([**"Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"**])
+tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
 
 ### TAB 1: RESTING BLOOD PRESSURE
 with tab1:
