@@ -161,16 +161,16 @@ with tab3:
          "ATA": "Atypical Angina",
          "NAP": "Non-Anginal Pain",
          "ASY": "Asymptomatic"
-    }
+     }
 
     # Simplify data retrieval function
     def get_category_data(chest_pain_type):
-         filtered_data = HEART_DATASETS[HEART_DATASETS['ChestPainType'] == chest_pain_type]
-         return filtered_data
+        filtered_data = HEART_DATASETS[HEART_DATASETS['ChestPainType'] == chest_pain_type]
+        return filtered_data
 
     # Initialize widgets more efficiently
     if "disabled" not in st.session_state:
-         st.session_state['disabled'] = False
+        st.session_state['disabled'] = False
 
     # Dividing column for diverse data
     col1, col2 = st.columns([7, 4])
@@ -183,19 +183,17 @@ with tab3:
          """)
     with col2:
          num = st.selectbox("Choose the data point you wish to visualize on the chart 📈", list(chest_pain_types.values()), key='num', disabled=st.session_state.disabled)
-         colors = ["#EDCC6F", "#F57893", "#6FED84", "#6F89ED"]
          filtered_data = get_category_data(next(key for key, value in chest_pain_types.items() if value == num))
 
     # Plotting chart for each chest pain type
-    for area, (code, full_name) in enumerate(chest_pain_types.items()):
+    for code, full_name in chest_pain_types.items():
          data = filtered_data[filtered_data['ChestPainType'] == code]
          age_counts = data['Age'].value_counts().sort_index().reset_index()
          age_counts.columns = ['Age', 'Count']
     
          # Create area chart
-         fig3 = px.area(age_counts, x='Age', y='Count', title=f"Chest Pain Type: {full_name} by Age Distribution",
-                        labels={'Age': 'Age', 'Count': 'Count'}, template="plotly_dark", 
-                        color_discrete_sequence=[colors[area % len(colors)]])
+         fig = px.area(age_counts, x='Age', y='Count', title=f"Chest Pain Type: {full_name} by Age Distribution",
+                       labels={'Age': 'Age', 'Count': 'Count'}, template="plotly_dark")
     
          # Display chart
-         st.plotly_chart(fig3)
+         st.plotly_chart(fig)
