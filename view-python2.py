@@ -102,6 +102,7 @@ with tab2:
       var = st.selectbox("Categories", ("ST_Slope", "ExerciseAngina", "FastingBS"), key='var')
       colors2 = ["#6FED84", "#F57893","#6F89ED"]
      # filtered_data = get_category_data(var)
-      fig2 = px.box(HEART_DATASETS[var], x="RestingECG", y="MaxHR", color=var, points="outliers",title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", rank: var},template="plotly_dark")
+      fig2 = px.box(HEART_DATASETS, x=var, y="MaxHR", color=var, points="outliers",title=f"Max Heart Rate by Resting Electrocardiogram results and {var}",
+                    labels={"RestingECG": "Resting Electrocardiogram Result", "MaxHR": "Max Heart Rate (bpm)", rank: var},template="plotly_dark")
       
       st.plotly_chart(fig2)
