@@ -31,7 +31,6 @@ with st.container():
   st.header(":blue[Information about CARDIOVASCULAR DISEASE 🫀]")
   st.write("Here's a preview of the dataset we are working with:")
   st.write(HEART_DATASETS)
-  st.write("##")
   
 # INFORMATION ABOUT THE DATASET  
   st.subheader(":violet[✴️ Reasons for selecting the datasets]")
@@ -41,28 +40,31 @@ with st.container():
   st.write("""
   People with cardiovascular disease or who are at high cardiovascular risk (due to the presence of one or more risk factors such as hypertension, diabetes, hyperlipidemia, or already established disease) need early detection and management wherein a machine learning model can be of great help. And we believe that with its diversity of information, we can analyze these data into intuitive charts.
   """)
-  st.write("#")
   
   st.subheader(":violet[👨🏻‍💻 Author of the datasets]")
   st.write("""
   :orange[**FEDESORIANO - Data Scientist at Kaggle - Madrid, Community of Madrid, Spain**]
   """)
+  st.write("*Acknowledgments:*
+  Creators:
+       \n - Hungarian Institute of Cardiology. Budapest: Andras Janosi, M.D.
+       \n - University Hospital, Zurich, Switzerland: William Steinbrunn, M.D.
+       \n - University Hospital, Basel, Switzerland: Matthias Pfisterer, M.D.
+       \n - V.A. Medical Center, Long Beach and Cleveland Clinic Foundation: Robert Detrano, M.D., Ph.D.")
   
-  st.write("#")
-  
-  st.subheader("🔖 VARIABLES OF THE DATASETS")
+  st.subheader(":violet[🔖 Variables of the datasets]")
   st.write(
         """Our data frame contains these main variables as follows:
-        \n - Age: Age of the patient [years]
-        \n - Sex: Sex of the patient [M: Male, F: Female]
-        \n - ChestPainType: hest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]
-        \n - RestingBP: resting blood pressure [mm Hg]
-        \n - Cholesterol: serum cholesterol [mm/dl]
-        \n - FastingBS: fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]
-        \n - MaxHR: maximum heart rate achieved [Numeric value between 60 and 202]
-        \n - ExerciseAngina: exercise-induced angina [Y: Yes, N: No] 
-        \n - ST_Slope: the slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
-        \n - HeartDisease: output class [1: heart disease, 0: Normal]""")
+        \n - :green[**Age:**] Age of the patient [years]
+        \n - :green[**Sex:**] Sex of the patient [M: Male, F: Female]
+        \n - :green[**ChestPainType:**] hest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]
+        \n - :green[**RestingBP:**] resting blood pressure [mm Hg]
+        \n - :green[**Cholesterol:**] serum cholesterol [mm/dl]
+        \n - :green[**FastingBS:**] fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]
+        \n - :green[**MaxHR:**] maximum heart rate achieved [Numeric value between 60 and 202]
+        \n - :green[**ExerciseAngina:**] exercise-induced angina [Y: Yes, N: No] 
+        \n - :green[**ST_Slope:**] the slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
+        \n - :green[HeartDisease:**] output class [1: heart disease, 0: Normal]""")
 
 st.divider()
 
