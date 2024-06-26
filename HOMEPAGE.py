@@ -112,13 +112,10 @@ with tab1:
 ### TAB 2: RESTING ELECTROCARDIOGRAM RESULT
 with tab2:
     # Simplify data retrieval function
-    def get_category_data(category, gender=None):
-       if gender:
-           filtered_data = HEART_DATASETS[HEART_DATASETS['Sex'] == gender]
-       else:
-           filtered_data = HEART_DATASETS
-       grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
-       return filtered_data, grouped_data
+    def get_category_data(gender, category):
+        filtered_data = HEART_DATASETS[HEART_DATASETS['HeartDisease'] == heartdisease]
+        grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
+        return filtered_data, grouped_data
 
     # Initialize widgets more efficiently
     if "disabled" not in st.session_state:
