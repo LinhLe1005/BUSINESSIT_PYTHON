@@ -8,9 +8,9 @@ HEART_DATASETS = pd.read_csv('HEART_DATASETS.csv')
 st.set_page_config(page_icon="chart_with_upwards_trend", page_title="BUSINESS IT 2 - PYTHON PROJECT 2", layout="wide")
 with st.container():
   st.subheader("Group 10 - Thursday Morning")
-  st.title(":green[PYTHON 2 - BUSINESS IT 2 🧐]")
+  st.title(":blue[PYTHON 2 - BUSINESS IT 2 🧐]")
   st.write("""
-  💁🏻 Since all members of our group are interested in what causes the most deaths globally, and this dataset appears with various numbers with its reasons,  we want to find out the data have an Intuitive view through different types of charts. In the process of finding a data set for the R Studio project, we were impressed by the information “taking an estimated 17.9 million lives each year,  which accounts for 31% of all deaths worldwide”, which was a huge statistic.  This data set is not only in the field we enjoy but also has a standard structure we need for the project.
+  💁🏻 Since all members of our group are interested in what causes the most deaths globally, and this dataset appears with various numbers with its reasons,  we want to find out the data have an Intuitive view through different types of charts. In the process of finding a data set for the R Studio project, we were impressed by the information *:green[“taking an estimated 17.9 million lives each year,  which accounts for 31% of all deaths worldwide”]*, which was a huge statistic.  This data set is not only in the field we enjoy but also has a standard structure we need for the project.
   """)
 
 st.divider()
@@ -29,24 +29,24 @@ with st.sidebar:
 # SETTING DATASETS
 with st.container():
   st.header("Information about Cardiovascular Disease 🫀")
-  st.write("Let's see the dataset we choose ")
+  st.write("Here's a preview of the dataset we are working with:")
   st.write(HEART_DATASETS)
   st.write("##")
   
 # INFORMATION ABOUT THE DATASET  
-  st.write("*✴️ REASONS CHOSE THE DATASETS*")
+  st.subheader("✴️ REASONS CHOSE THE DATASETS")
   st.write("""
   The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases. Also, it has many variables, such as categorical variables and real variables. And we believe that with its diversity of information, we can analyze these data into intuitive charts.
   """)
   st.write("##")
   
-  st.write("*👨🏻‍💻 AUTHOR OF THE DATASETS*")
+  st.subheader("👨🏻‍💻 AUTHOR OF THE DATASETS")
   st.write("""
   FEDESORIANO - Data Scientist at Kaggle - Madrid, Community of Madrid, Spain
   """)
   st.write("##")
   
-  st.write("*🔖 VARIABLES OF THE DATASETS*")
+  st.subheader("🔖 VARIABLES OF THE DATASETS")
   st.write(
         """Our data frame contains these main variables as follows:
         \n - Age: Age of the patient [years]
