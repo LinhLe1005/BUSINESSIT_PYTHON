@@ -132,7 +132,6 @@ with tab2:
 
 ### TAB 3: CHEST PAIN TYPE
 # Chest pain types for demonstration purposes
-# Chest pain types for demonstration purposes
 chest_pain_types = {
     "TA": "Typical Angina",
     "ATA": "Atypical Angina",
