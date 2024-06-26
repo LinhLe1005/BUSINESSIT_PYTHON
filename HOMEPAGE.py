@@ -201,7 +201,7 @@ with tab3:
 
     # Create area chart
     fig3 = px.area(age_counts, x='Age', y='Count', title=f"Chest Pain Type: {num} by Age Distribution",
-                   labels={'Age': 'Age', 'Count': 'Number of People'}, template="plotly_dark", color_discrete_sequence=[color])
+                   labels={'Age': 'Age (years)', 'Count': 'Number of People'}, template="plotly_dark", color_discrete_sequence=[color])
 
     # Display chart
     st.plotly_chart(fig3)
