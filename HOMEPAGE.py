@@ -45,17 +45,18 @@ with st.container():
   st.write("""
   :orange[**FEDESORIANO - Data Scientist at Kaggle - Madrid, Community of Madrid, Spain**]
   """)
-  st.write("
+  st.write("""
   *Acknowledgments:*
   Creators:
        \n - Hungarian Institute of Cardiology. Budapest: Andras Janosi, M.D.
        \n - University Hospital, Zurich, Switzerland: William Steinbrunn, M.D.
        \n - University Hospital, Basel, Switzerland: Matthias Pfisterer, M.D.
-       \n - V.A. Medical Center, Long Beach and Cleveland Clinic Foundation: Robert Detrano, M.D., Ph.D.")
+       \n - V.A. Medical Center, Long Beach and Cleveland Clinic Foundation: Robert Detrano, M.D., Ph.D.
+   """)
   
   st.subheader(":violet[🔖 Variables of the datasets]")
-  st.write(
-        """Our data frame contains these main variables as follows:
+  st.write("""
+        Our data frame contains these main variables as follows:
         \n - :green[**Age:**] Age of the patient [years]
         \n - :green[**Sex:**] Sex of the patient [M: Male, F: Female]
         \n - :green[**ChestPainType:**] hest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]
@@ -65,7 +66,8 @@ with st.container():
         \n - :green[**MaxHR:**] maximum heart rate achieved [Numeric value between 60 and 202]
         \n - :green[**ExerciseAngina:**] exercise-induced angina [Y: Yes, N: No] 
         \n - :green[**ST_Slope:**] the slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
-        \n - :green[HeartDisease:**] output class [1: heart disease, 0: Normal]""")
+        \n - :green[HeartDisease:**] output class [1: heart disease, 0: Normal]
+        """)
 
 st.divider()
 
