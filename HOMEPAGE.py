@@ -28,26 +28,27 @@ with st.sidebar:
 
 # SETTING DATASETS
 with st.container():
-  st.header(":blue[Information about Cardiovascular Disease 🫀]")
+  st.header(":blue[Information about CARDIOVASCULAR DISEASE 🫀]")
   st.write("Here's a preview of the dataset we are working with:")
   st.write(HEART_DATASETS)
   st.write("##")
   
 # INFORMATION ABOUT THE DATASET  
-  st.subheader(":violet[✴️ REASONS CHOSE THE DATASETS]")
+  st.subheader(":violet[✴️ Reasons for selecting the datasets]")
   st.write("""
-  The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases. Also, it has many variables, such as categorical variables and real variables. And we believe that with its diversity of information, we can analyze these data into intuitive charts.
+  The data set includes many factors affecting individuals' health problems, which as cardiovascular diseases (CVDs). Heart failure is a common event caused by CVDs and this dataset contains 11 features that can be used to predict a possible heart disease, which are categorical variables and real variables.
   """)
-  st.write(""""
-  We want to find out how these factors impact cardiovascular health, which includes chest pain types, achieved maximum heart rate, fasting blood sugar, gender, and age of people who suffer from CVDs. By analyzing the graphs of these factors, we can identify the cause of cardiovascular diseases and know how to treat our bodies better.
+  st.write("""
+  People with cardiovascular disease or who are at high cardiovascular risk (due to the presence of one or more risk factors such as hypertension, diabetes, hyperlipidemia, or already established disease) need early detection and management wherein a machine learning model can be of great help. And we believe that with its diversity of information, we can analyze these data into intuitive charts.
   """)
   st.write("#")
   
-  st.subheader(":violet[👨🏻‍💻 AUTHOR OF THE DATASETS]")
+  st.subheader(":violet[👨🏻‍💻 Author of the datasets]")
   st.write("""
-  FEDESORIANO - Data Scientist at Kaggle - Madrid, Community of Madrid, Spain
+  :orange[**FEDESORIANO - Data Scientist at Kaggle - Madrid, Community of Madrid, Spain**]
   """)
-  st.write("##")
+  
+  st.write("#")
   
   st.subheader("🔖 VARIABLES OF THE DATASETS")
   st.write(
