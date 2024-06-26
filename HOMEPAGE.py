@@ -96,7 +96,7 @@ with tab1:
         st.write(""":green[**Resting blood pressure**] impacts cardiovascular disease risk differently between genders. Men typically develop hypertension and CVD earlier, facing severe coronary artery disease and sudden cardiac events. Women’s risk increases post-menopause due to declining estrogen, leading to non-obstructive coronary artery disease and atypical symptoms. These graphs are shown by :orange[*scatter plots*], illustrating specified genders based on age and resting blood pressure by choosing three different variables.
         """)
     with col2:
-        age_type = st.radio("Choose a gender you want to look at 👀", ["🙋🏼‍♂️ Male", "🙋🏼‍♀️ Female"], key="visibility", disabled=st.session_state.disabled)
+        age_type = st.radio("Choose a gender you want to look at 👀", ["Male", "Female"], key="visibility", disabled=st.session_state.disabled)
         rank = st.selectbox("Select the value you want to display on the chart 🟢 🔴", ("HeartDisease", "ExerciseAngina", "FastingBS"), key="rank", disabled=st.session_state.disabled)
         colors1 = ["#F57893", "#6FED84"]
     filtered_data, category_data = get_category_data(age_type, rank)
