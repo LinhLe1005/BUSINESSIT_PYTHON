@@ -58,14 +58,14 @@ with st.container():
         Our data frame contains these main variables as follows:
         \n - :green[**Age:**] Age of the patient [years]
         \n - :green[**Sex:**] Sex of the patient [M: Male, F: Female]
-        \n - :green[**ChestPainType:**] hest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]
-        \n - :green[**RestingBP:**] resting blood pressure [mm Hg]
-        \n - :green[**Cholesterol:**] serum cholesterol [mm/dl]
-        \n - :green[**FastingBS:**] fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]
-        \n - :green[**MaxHR:**] maximum heart rate achieved [Numeric value between 60 and 202]
-        \n - :green[**ExerciseAngina:**] exercise-induced angina [Y: Yes, N: No] 
-        \n - :green[**ST_Slope:**] the slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
-        \n - :green[**HeartDisease:**] output class [1: heart disease, 0: Normal]
+        \n - :green[**ChestPainType:**] Chest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]
+        \n - :green[**RestingBP:**] Resting blood pressure [mm Hg]
+        \n - :green[**Cholesterol:**] Serum cholesterol [mm/dl]
+        \n - :green[**FastingBS:**] Fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]
+        \n - :green[**MaxHR:**] Maximum heart rate achieved [Numeric value between 60 and 202]
+        \n - :green[**ExerciseAngina:**] Exercise-induced angina [Y: Yes, N: No] 
+        \n - :green[**ST_Slope:**] The slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
+        \n - :green[**HeartDisease:**] Output class [1: heart disease, 0: Normal]
         """)
 
 st.divider()
@@ -73,10 +73,10 @@ st.divider()
 
 # SETTING CHARTS
 st.header(":blue[Factors Affecting Individual's Health Problems]")
-st.write("Let's discover these graphs below")
+st.write("*Let's discover these graphs below*")
 
 # Initial 3 tabs for each type of variables
-tab1, tab2, tab3 = st.tabs(["Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"])
+tab1, tab2, tab3 = st.tabs([**"Resting Blood Pressure", "Resting Electrocardiogram Result", "Chest Pain Type"**])
 
 ### TAB 1: RESTING BLOOD PRESSURE
 with tab1:
