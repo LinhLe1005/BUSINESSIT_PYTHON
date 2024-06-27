@@ -157,7 +157,7 @@ with tab2:
                   color_discrete_map={value: color for value, color in zip(filtered_data[var].unique(), colors2)})
 
     # Update the layout to change the title color
-    fig2.update_layout(title_font=dict(color='violet', size=22))
+    fig2.update_layout(title_font=dict(color='violet', size=21))
   
     # Display chart
     st.plotly_chart(fig2)
