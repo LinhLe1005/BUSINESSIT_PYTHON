@@ -122,6 +122,41 @@ with tab1:
     # Display chart
     st.plotly_chart(fig1)
 
+    st.divider()
+  
+    # Simplify data retrieval function
+    def get_category_data(bloodpressure, category):
+        filtered_data = HEART_DATASETS[HEART_DATASETS['RestingBP'] == bloodpressure]
+        grouped_data = filtered_data.groupby(category).size().reset_index(name='Count')
+        return filtered_data, grouped_data
+
+    # Initialize widgets more efficiently
+    if "disabled" not in st.session_state:
+        st.session_state['disabled'] = False
+
+    # Dividing column for information & data
+    st.write("""
+    :green[**📖 Resting blood pressure**] impacts cardiovascular disease (CVD) risk differently between genders. 
+    Men typically develop hypertension and CVD earlier, often facing severe coronary artery disease and sudden cardiac events. 
+    In contrast, women’s risk increases post-menopause due to declining estrogen levels, leading to non-obstructive coronary artery disease and atypical symptoms. 
+    These differences are illustrated in the :orange[*scatter plots*] below, which show the relationship between *age, resting blood pressure, and gender* by selecting three different variables.
+    """)
+
+    # Assuming `filtered_data` is obtained from get_category_data function
+    bloodpressure = 120  # Example value, replace with actual value
+    category = 'Gender'  # Example value, replace with actual category
+    filtered_data, grouped_data = get_category_data(bloodpressure, category)
+
+    # Plotting chart
+    fig4 = px.histogram(filtered_data, x='RestingBP', y='Density', color_discrete_sequence=['#6F89ED'], title="Distribution of Resting Blood Pressure Distribution",
+                        labels={'Density': 'Density', 'RestingBP': 'Resting Blood Pressure (mm Hg)'})
+
+    # Update the layout to change the title color
+    fig4.update_layout(title_font=dict(color='violet', size=22))
+
+    # Display chart
+    st.plotly_chart(fig4)
+
 ### TAB 2: RESTING ELECTROCARDIOGRAM RESULT
 with tab2:
     # Simplify data retrieval function
