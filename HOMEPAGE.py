@@ -116,6 +116,9 @@ with tab1:
                       labels={'Age': 'Age (years)', 'RestingBP': 'Resting Blood Pressure (mm Hg)', rank: rank}, 
                       color_discrete_map={value: color for value, color in zip(filtered_data[rank].unique(), colors1)})
 
+    # Update the layout to change the title color
+    fig1.update_layout(title_font=dict(color='purple'))
+
     # Display chart
     st.plotly_chart(fig1)
 
@@ -153,6 +156,9 @@ with tab2:
                   template="plotly_dark", 
                   color_discrete_map={value: color for value, color in zip(filtered_data[var].unique(), colors2)})
 
+    # Update the layout to change the title color
+    fig2.update_layout(title_font=dict(color='purple'))
+  
     # Display chart
     st.plotly_chart(fig2)
 
@@ -204,6 +210,9 @@ with tab3:
     # Creating chart
     fig3 = px.area(age_counts, x='Age', y='Count', title=f"Chest Pain Type: {num} by Age Distribution",
                    labels={'Age': 'Age (years)', 'Count': 'Number of People'}, template="plotly_dark", color_discrete_sequence=[color])
+
+    # Update the layout to change the title color
+    fig3.update_layout(title_font=dict(color='purple'))
 
     # Display chart
     st.plotly_chart(fig3)
