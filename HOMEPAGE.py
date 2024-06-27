@@ -117,7 +117,7 @@ with tab1:
                       color_discrete_map={value: color for value, color in zip(filtered_data[rank].unique(), colors1)})
 
     # Update the layout to change the title color
-    fig1.update_layout(title_font=dict(color='violet', size=24))
+    fig1.update_layout(title_font=dict(color='violet', size=22))
 
     # Display chart
     st.plotly_chart(fig1)
@@ -157,7 +157,7 @@ with tab2:
                   color_discrete_map={value: color for value, color in zip(filtered_data[var].unique(), colors2)})
 
     # Update the layout to change the title color
-    fig2.update_layout(title_font=dict(color='violet', size=24))
+    fig2.update_layout(title_font=dict(color='violet', size=22))
   
     # Display chart
     st.plotly_chart(fig2)
