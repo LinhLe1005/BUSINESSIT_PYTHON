@@ -143,8 +143,8 @@ with tab1:
     """)
 
     # Assuming `filtered_data` is obtained from get_category_data function
-    bloodpressure = 120  # Example value, replace with actual value
-    category = 'Gender'  # Example value, replace with actual category
+    bloodpressure = 120
+    category = 'RestingBP'
     filtered_data, grouped_data = get_category_data(bloodpressure, category)
 
     # Plotting chart
